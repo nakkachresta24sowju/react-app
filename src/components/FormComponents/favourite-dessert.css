@@ -1,0 +1,43 @@
+.container1 {
+      text-align: center;
+}
+
+.greet {
+      background-color: black;
+      color: white;
+      height: 40px;
+      padding-top: 15px;
+}
+
+.svgimg {
+      background-color: black;
+      border: 0px;
+      margin-left: 20px;
+      margin-right: 10px;
+}
+
+.text-input {
+      margin-top: 10px;
+      border: 1px solid black;
+      height: 30px;
+      width: 200px;
+
+}
+
+.greet-btn {
+      margin-top: 10px;
+      font-size: 10px;
+      width: 60px;
+      height: 30px;
+      border: 2px solid black;
+
+}
+
+.display-status {
+      margin-top: 10px;
+      text-align: center;
+}
+
+.listItems {
+      background-color: green;
+}

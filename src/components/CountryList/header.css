@@ -1,0 +1,40 @@
+.header-text {
+      margin: 30px;
+}
+
+.header-button-dark {
+      height: 50px;
+      margin: 30px;
+      font-size: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      color: #fff;
+      border: 0px;
+}
+
+.header-button-light {
+      height: 50px;
+      margin: 30px;
+      font-size: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      color: black;
+      border: 0px;
+}
+
+.header {
+      height: 60px;
+      display: flex;
+      padding-bottom: 30px;
+}
+
+.light-theme {
+      background-color: #fff;
+      color: #2b3945;
+}
+
+.dark-theme {
+      background-color: #2b3945;
+      color: #fff;
+
+}

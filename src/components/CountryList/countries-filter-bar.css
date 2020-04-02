@@ -1,0 +1,13 @@
+.country-filter {
+    display: flex;
+}
+
+.light-theme-one {
+    background-color: white;
+    color: #2b3945;
+}
+
+.dark-theme-one {
+    background-color: black;
+    color: white;
+}
