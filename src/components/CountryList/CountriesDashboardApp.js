@@ -1,9 +1,9 @@
 /* global fetch */
 import React from 'react';
-import { Countries } from './countries.js';
-import { Header } from './header.js';
-import { CountriesFilterBar } from './countries-filter-bar';
-import './countries-dashboard-app.css';
+import { Countries } from './Countries.js';
+import { Header } from './Header.js';
+import { CountriesFilterBar } from './CountriesFilterBar';
+import './CountriesDashboardApp.css';
 class CountriesDashboardApp extends React.Component {
  constructor(props) {
   super(props);

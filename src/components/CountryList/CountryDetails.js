@@ -2,8 +2,8 @@ import React from 'react';
 /* global fetch */
 import { withRouter } from 'react-router-dom';
 import { MdArrowBack } from "react-icons/md";
-import './navigate-country-detail.css';
-class NavigateCountry extends React.Component {
+import './CountryDetails.css';
+class CountryDetails extends React.Component {
  constructor(props) {
   super(props);
   this.state = { givenCountriesList: [], navigatedCountry: [] };
@@ -12,8 +12,7 @@ class NavigateCountry extends React.Component {
   fetch('https://restcountries.eu/rest/v2/all')
    .then(response => response.json())
    .then((jsonData) => {
-    this.setState({ givenCountriesList: jsonData });
-    this.setState({ navigatedCountry: this.state.givenCountriesList.filter(cn => cn.name === this.props.location.state[0]) });
+    this.setState({givenCountriesList: jsonData, navigatedCountry: this.state.givenCountriesList.filter(cn => cn.name === this.props.location.state[0]) });
    })
    .catch((error) => {
     console.error(error);
@@ -61,7 +60,7 @@ class NavigateCountry extends React.Component {
   return (<div>{this.renderList()}</div>);
  }
 }
-export default withRouter(NavigateCountry);
+export default withRouter(CountryDetails);
 
 
 /*
