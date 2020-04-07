@@ -1,13 +1,4 @@
 import React from "react";
-//import { CarsList } from './components/CarsList/index.js';
-//import { TodoList } from './components/TodoList/index.js';
-//import { FormComponents } from './components/FormComponents/form-components.js';
-//import { CountriesDashboardApp } from './components/CountryList/CountriesDashboardApp.js';
-//import CountryDetails from './components/CountryList/CountryDetails';
-//import { Header } from './components/CountryList/Header.js';
-//import {observable} from 'mobx';
-//import {observer} from 'mobx-react';
-import EmojiGame from './components/Game/EmojiGame.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,44 +6,70 @@ import {
   Link
 }
   from "react-router-dom";
-//import HomePage from "./components/HomePage";
-//import Page1 from "./components/Page1";
+
+import { CarsList } from './components/CarsList/index.js';
+import { TodoList } from './components/TodoList/index.js';
+import { FormComponents } from './components/FormComponents/form-components.js';
+import { CountriesDashboardApp } from './components/CountryList/CountriesDashboardApp.js';
+import CountryDetails from './components/CountryList/CountryDetails';
+import { Header } from './components/CountryList/Header.js';
+import HomePage from "./components/HomePage";
+import Page1 from "./components/Page1";
+import EmojiGame from './components/Game/EmojiGame.js';
+
+
+
+// import { observable } from 'mobx';
+// import { observer } from 'mobx-react';
+
+
+//import themeStore from './components/stores/ThemeStore';
+
 import "./App.css";
-//@observer(decorator)
-class App extends React.Component {
 
-  render() {
-    return (
-      <Router basename={process.env.PUBLIC_URL}>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/EmojiGame">EmojiGame</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <Switch>
-            <Route exact path="/EmojiGame">
-              <EmojiGame />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Router basename={process.env.PUBLIC_URL}>
+      <Switch>
+        <Route exact path="/EmojiGame">
+          <EmojiGame />
+        </Route>
+        <Route path="/CarsList">
+          <CarsList />
+        </Route>
+        <Route path="/TodoList">
+          <TodoList />
+        </Route>
+        <Route path="/form-components">
+          <FormComponents />
+        </Route>
+        <Route exact path="/CountriesDashboardApp">
+          <CountriesDashboardApp />
+        </Route>
+        <Route exact path="/CountriesDashboardApp/:country">
+          <Header />
+          <CountryDetails />
+        </Route>
+        <Route path="/Page1">
+          <Page1 />
+        </Route>
+        <Route path="/HomePage">
+          <HomePage />
+        </Route>
+      </Switch>
+    </Router>
+  );
+};
 export default App;
 
 
-/*function FormComponents() {
+{/* function FormComponents() {
   return <div>
       <h2>Homessss</h2>
     </div>
-}*/
+}
 
-/*import React from 'react';
+import React from 'react';
 import { CarsList } from './components/CarsList/index';
 import logo from './logo.svg';
 import './App.css';
@@ -77,12 +94,10 @@ function App() {
       </header>
     </div>
   );
-}
+} }
 
 export default App;
-
-*/
-
+ */}
 
 
 
@@ -93,7 +108,7 @@ export default App;
 
 
 
-/*import React from "react";
+{/* /*import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
@@ -139,28 +154,7 @@ export default App;*/
                 <Link to="/Page1">Page1</Link>
               </li>
 
-              <Route path="/CarsList">
-              <CarsList />
-            </Route>
-            <Route path="/TodoList">
-              <TodoList />
-            </Route>
-            <Route path="/form-components">
-              <FormComponents />
-            </Route>
-            <Route exact path="/CountriesDashboardApp">
-              <CountriesDashboardApp selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} />
-            </Route>
-            <Route exact path="/CountriesDashboardApp/:country">
-              <Header selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} />
-              <CountryDetails selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} />
-            </Route>
-            <Route path="/Page1">
-              <Page1 />
-            </Route>
-            <Route path="/HomePage">
-              <HomePage />
-              <Route />
+              
 
 
               constructor(props) {
@@ -172,20 +166,18 @@ import {observer} from 'mobx-react';
 
   getCurrentTheme = () =>
 {
-return this.selectedTheme
+return themeStore.selectedTheme
 }
 
+
+selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} 
   seCurrentTheme = (theme) =>
 {
 this.selectedTheme = theme
 }
 
   onChangeTheme = () => {
-    if (this.state.selectedTheme === "light-theme") {
-      this.setState({ selectedTheme: "dark-theme" });
-    }
-    else {
-      this.setState({ selectedTheme: "light-theme" });
+    themeStore.setCurrentTheme();
     }
   }
-*/
+*/}
