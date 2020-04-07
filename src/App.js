@@ -19,46 +19,79 @@ import EmojiGame from './components/Game/EmojiGame.js';
 
 
 
-// import { observable } from 'mobx';
-// import { observer } from 'mobx-react';
+
+import { observer } from 'mobx-react';
 
 
-//import themeStore from './components/stores/ThemeStore';
+import themeStore from './stores/ThemeStore';
 
 import "./App.css";
 
-const App = () => {
-  return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <Switch>
-        <Route exact path="/EmojiGame">
-          <EmojiGame />
-        </Route>
-        <Route path="/CarsList">
-          <CarsList />
-        </Route>
-        <Route path="/TodoList">
-          <TodoList />
-        </Route>
-        <Route path="/form-components">
-          <FormComponents />
-        </Route>
-        <Route exact path="/CountriesDashboardApp">
-          <CountriesDashboardApp />
-        </Route>
-        <Route exact path="/CountriesDashboardApp/:country">
-          <Header />
-          <CountryDetails />
-        </Route>
-        <Route path="/Page1">
-          <Page1 />
-        </Route>
-        <Route path="/HomePage">
-          <HomePage />
-        </Route>
-      </Switch>
-    </Router>
-  );
+@observer
+
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <Router basename={process.env.PUBLIC_URL}>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/CarsList">CarsList</Link>
+              </li>
+              <li>
+                <Link to="/TodoList">TodoList</Link>
+              </li>
+              <li>
+                <Link to="/form-components">FormComponents</Link>
+              </li>
+              <li>
+                <Link to="/CountriesDashboardApp">CountriesDashboardApp</Link>
+              </li>
+              <li>
+                <Link to="/EmojiGame">Game</Link>
+              </li>
+              <li>
+                <Link to="/Page1">Page1</Link>
+              </li>
+              <li>
+                <Link to="/HomePage">HomePage</Link>
+              </li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route exact path="/EmojiGame">
+              <EmojiGame />
+            </Route>
+            <Route path="/CarsList">
+              <CarsList />
+            </Route>
+            <Route path="/TodoList">
+              <TodoList />
+            </Route>
+            <Route path="/form-components">
+              <FormComponents />
+            </Route>
+            <Route exact path="/CountriesDashboardApp">
+              <CountriesDashboardApp />
+            </Route>
+            <Route exact path="/CountriesDashboardApp/:country">
+              <Header />
+              <CountryDetails />
+            </Route>
+            <Route path="/Page1">
+              <Page1 />
+            </Route>
+            <Route path="/HomePage">
+              <HomePage />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 };
 export default App;
 

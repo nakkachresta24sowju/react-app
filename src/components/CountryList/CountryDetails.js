@@ -3,6 +3,12 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { MdArrowBack } from "react-icons/md";
 import './CountryDetails.css';
+import { observer } from 'mobx-react';
+
+
+import themeStore from '../../stores/ThemeStore';
+
+@observer
 class CountryDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -27,9 +33,9 @@ class CountryDetails extends React.Component {
 
   renderList = () => {
     if (this.state.navigatedCountry.length > 0) {
-      return (<div className={(this.props.selectedTheme === "dark-theme") ? "dark-theme-one" : "light-theme-one"}>
+      return (<div className={(themeStore.selectedTheme === "dark-theme") ? "dark-theme-one" : "light-theme-one"}>
         <div className="back-button">
-          <button className={(this.props.selectedTheme === "dark-theme") ? "dark-theme button-btn" : "light-theme button-btn"}
+          <button className={(themeStore.selectedTheme === "dark-theme") ? "dark-theme button-btn" : "light-theme button-btn"}
             onClick={this.onNavigateback}><MdArrowBack />Back</button>
         </div>
         <div className="navigation">
@@ -51,7 +57,7 @@ class CountryDetails extends React.Component {
             <div><b>Sub Region:</b>{this.state.navigatedCountry[0].subregion}</div>
             <div><b>Capital:</b>{this.state.navigatedCountry[0].capital}</div>
             <div><b>Border Countries:</b><br />{this.state.navigatedCountry[0].borders.map(c => <button
-              className={(this.props.selectedTheme === "dark-theme") ? "dark-theme button-btn" : "light-theme button-btn"} key={c}>{c}</button>)}</div>
+              className={(themeStore.selectedTheme === "dark-theme") ? "dark-theme button-btn" : "light-theme button-btn"} key={c}>{c}</button>)}</div>
           </div>
         </div>
       </div>);

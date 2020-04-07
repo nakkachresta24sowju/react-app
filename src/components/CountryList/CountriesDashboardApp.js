@@ -4,6 +4,7 @@ import { Countries } from './Countries.js';
 import { Header } from './Header.js';
 import { CountriesFilterBar } from './CountriesFilterBar';
 import './CountriesDashboardApp.css';
+
 class CountriesDashboardApp extends React.Component {
   constructor(props) {
     super(props);
@@ -67,9 +68,9 @@ class CountriesDashboardApp extends React.Component {
     const displayCountries = this.displayCountries();
     console.log("displayCountries", displayCountries);
     return (<div>
-      <Header selectedTheme={this.props.selectedTheme} onChangeTheme={this.props.onChangeTheme} />
-      <CountriesFilterBar selectedRegion={this.state.selectedRegion} regionOptions={this.state.regionOptions} selectedTheme={this.props.selectedTheme} onChangeSelectedRegion={this.onChangeSelectedRegion} onChangeSearchText={this.onChangeSearchText} />
-      <Countries allcountries={displayCountries} onChangeTheme={this.props.onChangeTheme} selectedTheme={this.props.selectedTheme} />
+      <Header />
+      <CountriesFilterBar selectedRegion={this.state.selectedRegion} regionOptions={this.state.regionOptions} onChangeSelectedRegion={this.onChangeSelectedRegion} onChangeSearchText={this.onChangeSearchText} />
+      <Countries allcountries={displayCountries} />
     </div>);
   }
 }

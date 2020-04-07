@@ -1,18 +1,21 @@
-import { MdCallToAction } from "react-icons/md";
 
+import { observable } from 'mobx';
 class ThemeStore {
     @observable selectedTheme
     constructor() {
         this.selectedTheme = "light-theme"
     }
     //@action.bound
-    setCurrentTheme() {
+    onChangeTheme = () => {
         if (this.selectedTheme === "light-theme") {
-            this.setState({ selectedTheme: "dark-theme" });
+            this.selectedTheme = "dark-theme";
         }
         else {
-            this.setState({ selectedTheme: "light-theme" });
+            this.selectedTheme = "light-theme";
         }
+    }
+    getCurrentTheme() {
+        return this.selectedTheme;
     }
 }
 const themeStore = new ThemeStore()

@@ -1,13 +1,21 @@
 import React from 'react';
 import './Header.css';
 import { FaRegMoon } from "react-icons/fa";
-function Header(props) {
-  return (<div className={(props.selectedTheme === "dark-theme") ? "dark-theme" : "light-theme"}>
-    <div className="header">
-      <span className="header-text">Where in the world?</span>
-      <button className={(props.selectedTheme === "dark-theme") ? "header-button-dark" : "header-button-light"} onClick={props.onChangeTheme}><FaRegMoon />{(props.selectedTheme === "dark-theme") ? "DarkMode" : "LightMode"}</button>
-    </div>
-  </div>);
+import { observer } from 'mobx-react';
+
+
+import themeStore from '../../stores/ThemeStore';
+
+@observer
+class Header extends React.Component {
+  render() {
+    return (<div className={(themeStore.selectedTheme === "light-theme") ? "light-theme" : "dark-theme"}>
+      <div className="header">
+        <span className="header-text">Where in the world?</span>
+        <button className={(themeStore.selectedTheme === "dark-theme") ? "header-button-dark" : "header-button-light"} onClick={themeStore.onChangeTheme}><FaRegMoon />{(themeStore.getCurrentTheme === "dark-theme") ? "DarkMode" : "LightMode"}</button>
+      </div>
+    </div>);
+  }
 }
 
 export { Header };
