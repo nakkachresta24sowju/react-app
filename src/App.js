@@ -5,6 +5,8 @@ import React from "react";
 //import { CountriesDashboardApp } from './components/CountryList/CountriesDashboardApp.js';
 //import CountryDetails from './components/CountryList/CountryDetails';
 //import { Header } from './components/CountryList/Header.js';
+//import {observable} from 'mobx';
+//import {observer} from 'mobx-react';
 import EmojiGame from './components/Game/EmojiGame.js';
 import {
   BrowserRouter as Router,
@@ -16,6 +18,7 @@ import {
 //import HomePage from "./components/HomePage";
 //import Page1 from "./components/Page1";
 import "./App.css";
+//@observer(decorator)
 class App extends React.Component {
 
   render() {
@@ -172,6 +175,19 @@ export default App;*/
     super(props);
     this.state = { selectedTheme: "light-theme" };
   }
+import {observer} from 'mobx-react';
+  @observable selectedTheme="light"
+
+  getCurrentTheme = () =>
+{
+return this.selectedTheme
+}
+
+  seCurrentTheme = (theme) =>
+{
+this.selectedTheme = theme
+}
+
   onChangeTheme = () => {
     if (this.state.selectedTheme === "light-theme") {
       this.setState({ selectedTheme: "dark-theme" });

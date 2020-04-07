@@ -5,12 +5,7 @@ const Button = styled.button`
 ${tw` bg-indigo-600 rounded-sm text-white px-6 h-12 text-2xl`}
 hover:bg-indigo-800;
 `;
-// const Parent = styled.div`
-// background-color:${props => props.background ? "pink" : "black"};
-// color:${props => props.background ? "black" : "pink"};
-// display:flex;
-// border: 1px  solid grey;   background={this.props.isThemeChanged ? "pink" : "black"}
-// `;
+
 const WinOrLoose = styled.p`
 ${tw` text-red-600 text-3xl font-bold`}
 `;
