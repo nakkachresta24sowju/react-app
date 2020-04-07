@@ -1,86 +1,42 @@
 import React from "react";
-import { CarsList } from './components/CarsList/index.js';
-import { TodoList } from './components/TodoList/index.js';
-import { FormComponents } from './components/FormComponents/form-components.js';
-import { CountriesDashboardApp } from './components/CountryList/CountriesDashboardApp.js';
-import  CountryDetails from './components/CountryList/CountryDetails';
-import { Header } from './components/CountryList/Header.js';
+//import { CarsList } from './components/CarsList/index.js';
+//import { TodoList } from './components/TodoList/index.js';
+//import { FormComponents } from './components/FormComponents/form-components.js';
+//import { CountriesDashboardApp } from './components/CountryList/CountriesDashboardApp.js';
+//import CountryDetails from './components/CountryList/CountryDetails';
+//import { Header } from './components/CountryList/Header.js';
+import EmojiGame from './components/Game/EmojiGame.js';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 }
-from "react-router-dom";
-import HomePage from "./components/HomePage";
-import Page1 from "./components/Page1";
+  from "react-router-dom";
+//import HomePage from "./components/HomePage";
+//import Page1 from "./components/Page1";
 import "./App.css";
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { selectedTheme: "light-theme" };
-  }
-  onChangeTheme = () => {
-    if (this.state.selectedTheme === "light-theme") {
-      this.setState({ selectedTheme: "dark-theme" });
-    }
-    else {
-      this.setState({ selectedTheme: "light-theme" });
-    }
-  }
+
   render() {
     return (
       <Router basename={process.env.PUBLIC_URL}>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/CarsList">CarsList</Link>
-            </li>
-            <li>
-              <Link to="/TodoList">TodoList</Link>
-            </li>
-             <li>
-              <Link to="/form-components">FormComponents</Link>
-            </li>
-             <li>
-              <Link to="/CountriesDashboardApp">CountriesDashboardApp</Link>
-            </li>
-            <li>
-              <Link to="/HomePage">HomePage</Link>
-            </li>
-            <li>
-              <Link to="/Page1">Page1</Link>
-            </li>
-          </ul>
-        </nav>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/EmojiGame">EmojiGame</Link>
+              </li>
+            </ul>
+          </nav>
 
-        <Switch>
-          <Route path="/CarsList">
-            <CarsList />
-          </Route>
-          <Route path="/TodoList">
-            <TodoList />
-          </Route>
-          <Route path="/form-components">
-            <FormComponents />
-          </Route>
-           <Route exact path="/CountriesDashboardApp">
-            <CountriesDashboardApp selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} />
-          </Route>
-          <Route exact path="/CountriesDashboardApp/:country">
-            <Header selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} />
-            <CountryDetails selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} />
-          </Route>
-          <Route path="/Page1">
-          <Page1 />
-          </Route>
-          <Route  path="/HomePage">
-          <HomePage />
-          </Route>
+          <Switch>
+            <Route exact path="/EmojiGame">
+              <EmojiGame />
+            </Route>
           </Switch>
         </div>
-    </Router>
+      </Router>
     );
   }
 }
@@ -156,3 +112,64 @@ const App = () => {
 };
 
 export default App;*/
+
+
+
+
+/*
+<li>
+                <Link to="/CarsList">CarsList</Link>
+              </li>
+              <li>
+                <Link to="/TodoList">TodoList</Link>
+              </li>
+              <li>
+                <Link to="/form-components">FormComponents</Link>
+              </li>
+              <li>
+                <Link to="/CountriesDashboardApp">CountriesDashboardApp</Link>
+              </li>
+              <li>
+                <Link to="/HomePage">HomePage</Link>
+              </li>
+              <li>
+                <Link to="/Page1">Page1</Link>
+              </li>
+
+              <Route path="/CarsList">
+              <CarsList />
+            </Route>
+            <Route path="/TodoList">
+              <TodoList />
+            </Route>
+            <Route path="/form-components">
+              <FormComponents />
+            </Route>
+            <Route exact path="/CountriesDashboardApp">
+              <CountriesDashboardApp selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} />
+            </Route>
+            <Route exact path="/CountriesDashboardApp/:country">
+              <Header selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} />
+              <CountryDetails selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} />
+            </Route>
+            <Route path="/Page1">
+              <Page1 />
+            </Route>
+            <Route path="/HomePage">
+              <HomePage />
+              <Route />
+
+
+              constructor(props) {
+    super(props);
+    this.state = { selectedTheme: "light-theme" };
+  }
+  onChangeTheme = () => {
+    if (this.state.selectedTheme === "light-theme") {
+      this.setState({ selectedTheme: "dark-theme" });
+    }
+    else {
+      this.setState({ selectedTheme: "light-theme" });
+    }
+  }
+*/
