@@ -11,6 +11,25 @@ border: 1px  solid grey;
 `;
 const GameName = styled.p`
 ${tw` text-3xl  pt-2  `}
+@media (min-width: 420px) {
+    
+  }
+  @media (min-width: 576px) {
+    flex-grow:1;
+  
+  }
+  @media (min-width: 768px) {
+    flex-grow:1;
+  
+  
+  }
+  @media (min-width: 992px) {
+    flex-grow:1;
+  
+  }
+  @media (min-width: 1200px) {
+    flex-grow:1;
+  }
 `;
 const Scores = styled.span` 
 ${tw`  flex  mx-4 `}
