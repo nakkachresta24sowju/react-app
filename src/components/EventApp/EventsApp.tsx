@@ -24,6 +24,3 @@ class EventsApp extends React.Component {
 
 }
 export default EventsApp;
-
-
-

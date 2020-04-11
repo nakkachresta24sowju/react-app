@@ -20,6 +20,3 @@ class EventList extends React.Component {
 
 }
 export default EventList;
-
-
-

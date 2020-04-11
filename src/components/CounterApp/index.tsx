@@ -14,7 +14,7 @@ ${tw`w-36 h-10 text-center `}
 `;
 @observer
 class CounterApp extends React.Component {
-    reaction1 = reaction(() => counterStore.count, count => console.log("count", count));
+   reaction1 = reaction(() => counterStore.count, count => console.log("count", count));
     render() {
         return (
             <div>

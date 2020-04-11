@@ -1,6 +1,0 @@
-.item1{
-    border:2px solid blue;
-}
-button{
-    background-color:red;
-}

@@ -55,17 +55,17 @@ export default Practice;
 // );
 
 
-    // @action.bound
-    // onIncrement() {
-    //     this.count.push("hai");
-    //     this.count.push("helo");
-    //     console.log(this.count);
-    // }
-    // @action.bound
-    // onDecrement() {
-    //     this.count--;
-    // }
-    // @action.bound
-    // onChange(event) {
-    //     this.count = event.target.value;
-    // }
+// @action.bound
+// onIncrement() {
+//     this.count.push("hai");
+//     this.count.push("helo");
+//     console.log(this.count);
+// }
+// @action.bound
+// onDecrement() {
+//     this.count--;
+// }
+// @action.bound
+// onChange(event) {
+//     this.count = event.target.value;
+// }
