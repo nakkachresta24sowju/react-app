@@ -5,7 +5,7 @@ import {
   Route,
   Link
 }
-  from "react-router-dom";
+from "react-router-dom";
 
 import { CarsList } from './components/CarsList/index.js';
 import { TodoList } from './components/TodoList/index.js';
@@ -96,129 +96,133 @@ class App extends React.Component {
 export default App;
 
 
-{/* function FormComponents() {
-  return <div>
-      <h2>Homessss</h2>
-    </div>
-}
-
-import React from 'react';
-import { CarsList } from './components/CarsList/index';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit<code>src/App.js</code> and save to reload.
-        </p>
-      <CarsList />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-} }
-
-export default App;
- */}
-
-
-
-
-
-
-
-
-
-
-{/* /*import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import HomePage from "./components/HomePage";
-import Page1 from "./components/Page1";
-<<<<<<< HEAD
-import CounterPage from "./components/CounterPage";
-=======
->>>>>>> 03eac9abdca9a1a6eb5f58a9aadb743926fb1b99
-import "./App.css";
-
-const App = () => {
-  return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <Switch>
-      
-        <Route exact path="/counter-page">
-          <CounterPage />
-        </Route>
-        <Route exact path="/page-1">
-          <Page1 />
-        </Route>
-        <Route path="/">
-          <HomePage />
-        </Route>
-        </Switch>
-    </Router>
-  );
-};
-
-export default App;*/
-
-
-
-
-/*
-<li>
-                <Link to="/CarsList">CarsList</Link>
-              </li>
-              <li>
-                <Link to="/TodoList">TodoList</Link>
-              </li>
-              <li>
-                <Link to="/form-components">FormComponents</Link>
-              </li>
-              <li>
-                <Link to="/CountriesDashboardApp">CountriesDashboardApp</Link>
-              </li>
-              <li>
-                <Link to="/HomePage">HomePage</Link>
-              </li>
-              <li>
-                <Link to="/Page1">Page1</Link>
-              </li>
-
-              
-
-
-              constructor(props) {
-    super(props);
-    this.state = { selectedTheme: "light-theme" };
+{
+  /* function FormComponents() {
+    return <div>
+        <h2>Homessss</h2>
+      </div>
   }
-import {observer} from 'mobx-react';
-  @observable selectedTheme="light"
 
-  getCurrentTheme = () =>
-{
-return themeStore.selectedTheme
+  import React from 'react';
+  import { CarsList } from './components/CarsList/index';
+  import logo from './logo.svg';
+  import './App.css';
+
+  function App() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit<code>src/App.js</code> and save to reload.
+          </p>
+        <CarsList />
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
+    );
+  } }
+
+  export default App;
+   */
 }
 
 
-selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} 
-  seCurrentTheme = (theme) =>
-{
-this.selectedTheme = theme
-}
 
-  onChangeTheme = () => {
-    themeStore.setCurrentTheme();
+
+
+
+
+
+
+
+{
+  /* /*import React from "react";
+  import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+  import HomePage from "./components/HomePage";
+  import Page1 from "./components/Page1";
+  <<<<<<< HEAD
+  import CounterPage from "./components/CounterPage";
+  =======
+  >>>>>>> 03eac9abdca9a1a6eb5f58a9aadb743926fb1b99
+  import "./App.css";
+
+  const App = () => {
+    return (
+      <Router basename={process.env.PUBLIC_URL}>
+        <Switch>
+        
+          <Route exact path="/counter-page">
+            <CounterPage />
+          </Route>
+          <Route exact path="/page-1">
+            <Page1 />
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+          </Switch>
+      </Router>
+    );
+  };
+
+  export default App;*/
+
+
+
+
+  /*
+  <li>
+                  <Link to="/CarsList">CarsList</Link>
+                </li>
+                <li>
+                  <Link to="/TodoList">TodoList</Link>
+                </li>
+                <li>
+                  <Link to="/form-components">FormComponents</Link>
+                </li>
+                <li>
+                  <Link to="/CountriesDashboardApp">CountriesDashboardApp</Link>
+                </li>
+                <li>
+                  <Link to="/HomePage">HomePage</Link>
+                </li>
+                <li>
+                  <Link to="/Page1">Page1</Link>
+                </li>
+
+                
+
+
+                constructor(props) {
+      super(props);
+      this.state = { selectedTheme: "light-theme" };
     }
+  import {observer} from 'mobx-react';
+    @observable selectedTheme="light"
+
+    getCurrentTheme = () =>
+  {
+  return themeStore.selectedTheme
   }
-*/}
+
+
+  selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} 
+    seCurrentTheme = (theme) =>
+  {
+  this.selectedTheme = theme
+  }
+
+    onChangeTheme = () => {
+      themeStore.setCurrentTheme();
+      }
+    }
+  */
+}
