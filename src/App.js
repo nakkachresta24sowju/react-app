@@ -8,7 +8,7 @@ import {
   from "react-router-dom";
 
 import { CarsList } from './components/CarsList/index.js';
-import { TodoList } from './components/TodoList/index.js';
+import TodoList from './components/TodoList/TodoList.js';
 import { FormComponents } from './components/FormComponents/form-components.js';
 import { CountriesDashboardApp } from './components/CountryList/CountriesDashboardApp.js';
 import CountryDetails from './components/CountryList/CountryDetails';
@@ -16,19 +16,15 @@ import { Header } from './components/CountryList/Header.js';
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 import EmojiGame from './components/Game/EmojiGame.js';
+import CounterApp from "./components/CounterApp";
+import Practice from './components/Practice';
+import TodoApp from './components/TodoMobx/TodoApp.js';
+import EventApp from './components/EventApp/EventsApp.js'
+
+//import { configure } from 'mobx'
 
 
-
-
-import { observer } from 'mobx-react';
-
-
-import themeStore from './stores/ThemeStore';
-
-import "./App.css";
-
-@observer
-
+//configure({ enforceActions: true })
 
 class App extends React.Component {
 
@@ -59,6 +55,18 @@ class App extends React.Component {
               <li>
                 <Link to="/HomePage">HomePage</Link>
               </li>
+              <li>
+                <Link to="/CounterApp">CounterApp</Link>
+              </li>
+              <li>
+                <Link to="/TodoApp">TodoApp</Link>
+              </li>
+              <li>
+                <Link to="/Practice">Practice</Link>
+              </li>
+              <li>
+                <Link to="/EventsApp">EventApp</Link>
+              </li>
             </ul>
           </nav>
           <Switch>
@@ -86,6 +94,18 @@ class App extends React.Component {
             </Route>
             <Route path="/HomePage">
               <HomePage />
+            </Route>
+            <Route path="/CounterApp">
+              <CounterApp />
+            </Route>
+            <Route path="/Practice">
+              <Practice />
+            </Route>
+            <Route path="/TodoApp">
+              <TodoApp />
+            </Route>
+            <Route path="/EventsApp">
+              <EventApp />
             </Route>
           </Switch>
         </div>
@@ -145,10 +165,7 @@ export default App;
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
-<<<<<<< HEAD
 import CounterPage from "./components/CounterPage";
-=======
->>>>>>> 03eac9abdca9a1a6eb5f58a9aadb743926fb1b99
 import "./App.css";
 
 const App = () => {
@@ -175,50 +192,62 @@ export default App;*/
 
 
 
-/*
-<li>
-                <Link to="/CarsList">CarsList</Link>
-              </li>
-              <li>
-                <Link to="/TodoList">TodoList</Link>
-              </li>
-              <li>
-                <Link to="/form-components">FormComponents</Link>
-              </li>
-              <li>
-                <Link to="/CountriesDashboardApp">CountriesDashboardApp</Link>
-              </li>
-              <li>
-                <Link to="/HomePage">HomePage</Link>
-              </li>
-              <li>
-                <Link to="/Page1">Page1</Link>
-              </li>
-
-              
-
-
-              constructor(props) {
-    super(props);
-    this.state = { selectedTheme: "light-theme" };
-  }
-import {observer} from 'mobx-react';
-  @observable selectedTheme="light"
-
-  getCurrentTheme = () =>
-{
-return themeStore.selectedTheme
-}
-
-
-selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} 
-  seCurrentTheme = (theme) =>
-{
-this.selectedTheme = theme
-}
-
-  onChangeTheme = () => {
-    themeStore.setCurrentTheme();
+  /*
+  <li>
+                  <Link to="/CarsList">CarsList</Link>
+                </li>
+                <li>
+                  <Link to="/TodoList">TodoList</Link>
+                </li>
+                <li>
+                  <Link to="/form-components">FormComponents</Link>
+                </li>
+                <li>
+                  <Link to="/CountriesDashboardApp">CountriesDashboardApp</Link>
+                </li>
+                <li>
+                  <Link to="/HomePage">HomePage</Link>
+                </li>
+                <li>
+                  <Link to="/Page1">Page1</Link>
+                </li>
+  
+                
+  
+  
+                constructor(props) {
+      super(props);
+      this.state = { selectedTheme: "light-theme" };
     }
+  import {observer} from 'mobx-react';
+    @observable selectedTheme="light"
+  
+    getCurrentTheme = () =>
+  {
+  return themeStore.selectedTheme
   }
-*/}
+  
+  
+  selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme} 
+    seCurrentTheme = (theme) =>
+  {
+  this.selectedTheme = theme
+  }
+  
+    onChangeTheme = () => {
+      themeStore.setCurrentTheme();
+      }
+    }
+  */
+
+
+  // import { observer } from 'mobx-react';
+
+
+  // import themeStore from './stores/ThemeStore';
+
+  // import "./App.css";
+
+  // @observer
+
+}
