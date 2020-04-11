@@ -1,17 +1,53 @@
-import { observable, action } from 'mobx'
+
+import { observable, action } from 'mobx';
 
 class CounterStore {
-   @observable count = 0
+   @observable count = 0;
 
    @action.bound
-   incrementCounter() {
-      this.count = this.count + 1
+   onIncrement() {
+      this.count++;
    }
-
    @action.bound
-   decrementCounter() {
-      this.count = this.count - 1
+   onDecrement() {
+      this.count--;
+   }
+   @action.bound
+   onChange(event) {
+      this.count = event.target.value;
    }
 }
+const counterStore = new CounterStore();
+export default counterStore;
 
-export default CounterStore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { observable, action } from 'mobx'
+
+// class CounterStore {
+//    @observable count = 0
+
+//    @action.bound
+//    incrementCounter() {
+//       this.count = this.count + 1
+//    }
+
+//    @action.bound
+//    decrementCounter() {
+//       this.count = this.count - 1
+//    }
+// }
+
+// export default CounterStore

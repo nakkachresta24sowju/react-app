@@ -1,0 +1,13 @@
+.counts {
+    display:flex;
+    flex-direction: row;
+    background-color: white;
+    width: 468px;
+    border:2px solid red;
+    margin-left: 255px;
+}
+
+.space-between
+{
+    justify-content: space-around;
+}
