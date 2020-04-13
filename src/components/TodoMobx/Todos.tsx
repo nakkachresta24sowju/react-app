@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { action, toJS } from 'mobx';
+import { action } from 'mobx';
 
 import { observer } from 'mobx-react';
 import './Todos.css';
