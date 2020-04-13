@@ -1,8 +1,9 @@
 import React from 'react';
-import './Todos.css';
+
 import { action, toJS } from 'mobx';
 
 import { observer } from 'mobx-react';
+import './Todos.css';
 
 @observer
 class Todos extends React.Component {

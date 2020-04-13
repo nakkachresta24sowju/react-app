@@ -1,6 +1,8 @@
 import React from 'react';
-import './TodoFooter.css';
+
 import { action } from 'mobx';
+
+import './TodoFooter.css';
 //import { action } from 'mobx';
 class TodosFooter extends React.Component {
     constructor(props) {
