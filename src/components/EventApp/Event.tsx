@@ -1,7 +1,7 @@
 import React from "react";
 
 import { observer } from 'mobx-react';
-import { action, toJS } from 'mobx';
+import { action } from 'mobx';
 import { observable } from 'mobx';
 
 

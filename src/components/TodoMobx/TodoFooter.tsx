@@ -1,5 +1,8 @@
 import React from 'react';
+
 import { action } from 'mobx';
+
+import './TodoFooter.css';
 //import { action } from 'mobx';
 
 import './TodoFooter.css';

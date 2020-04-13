@@ -1,14 +1,15 @@
 import React from "react";
 
 import { observer } from 'mobx-react';
-import { action } from 'mobx';
-import { observable } from 'mobx';
+//import { action } from 'mobx';
+//import { observable } from 'mobx';
 
 import AddEvent from './AddEvent';
-import Event from './Event';
+//import Event from './Event';
 import EventList from './EventList';
 
-import eventStored from '../../stores/EventStore/EventStore.js';
+import eventStored from '../../stores/EventStore/EventStore';
+
 
 @observer
 class EventsApp extends React.Component {
