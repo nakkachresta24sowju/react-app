@@ -4,10 +4,11 @@ import { observer } from 'mobx-react';
 import { action } from 'mobx';
 import { observable } from 'mobx';
 
-import eventStored from '../../stores/EventStore/EventStore.js';
 import AddEvent from './AddEvent';
 import Event from './Event';
 import EventList from './EventList';
+
+import eventStored from '../../stores/EventStore/EventStore.js';
 
 @observer
 class EventsApp extends React.Component {
