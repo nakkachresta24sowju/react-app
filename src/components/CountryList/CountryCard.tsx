@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+
 import './CountryCard.css';
+
 function CountryCard(props) {
   const navigateToCountryDetailsPage = () => {
     let { history } = props;

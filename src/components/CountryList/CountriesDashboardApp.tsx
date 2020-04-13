@@ -1,7 +1,7 @@
 /* global fetch */
 import React from 'react';
-import { Countries } from './Countries.js';
-import { Header } from './Header.js';
+import { Countries } from './Countries';
+import { Header } from './Header';
 import { CountriesFilterBar } from './CountriesFilterBar';
 import './CountriesDashboardApp.css';
 

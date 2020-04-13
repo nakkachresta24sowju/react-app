@@ -2,9 +2,9 @@ import React from 'react';
 /* global fetch */
 import { withRouter } from 'react-router-dom';
 import { MdArrowBack } from "react-icons/md";
-import './CountryDetails.css';
-import { observer } from 'mobx-react';
 
+import { observer } from 'mobx-react';
+import './CountryDetails.css';
 
 import themeStore from '../../stores/ThemeStore';
 

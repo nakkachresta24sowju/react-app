@@ -1,7 +1,9 @@
 import React from 'react';
-import './Header.css';
+
 import { FaRegMoon } from "react-icons/fa";
 import { observer } from 'mobx-react';
+
+import './Header.css';
 
 
 import themeStore from '../../stores/ThemeStore';

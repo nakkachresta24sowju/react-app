@@ -1,6 +1,6 @@
 import React from 'react';
-import './SearchCountry.css'
 import { MdSearch } from "react-icons/md";
+import './SearchCountry.css'
 function SearchCountry(props) {
   const onChangeText = (event) => {
     if (event.keyCode === 13) {

@@ -7,18 +7,18 @@ import {
 }
 from "react-router-dom";
 
-import { CarsList } from './components/CarsList/index.js';
-import TodoList from './components/TodoList/TodoList.js';
-import { FormComponents } from './components/FormComponents/form-components.js';
-import { CountriesDashboardApp } from './components/CountryList/CountriesDashboardApp.js';
+import { CarsList } from './components/CarsList/index';
+import TodoList from './components/TodoList/TodoList';
+import { FormComponents } from './components/FormComponents/form-components';
+import { CountriesDashboardApp } from './components/CountryList/CountriesDashboardApp';
 import CountryDetails from './components/CountryList/CountryDetails';
-import { Header } from './components/CountryList/Header.js';
+import { Header } from './components/CountryList/Header';
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 import EmojiGame from './components/Game/EmojiGame.js';
 import CounterApp from "./components/CounterApp";
 import Practice from './components/Practice';
-import TodoApp from './components/TodoMobx/TodoApp.js';
+import TodoApp from './components/TodoMobx/TodoApp';
 import EventApp from './components/EventApp/EventsApp.js'
 
 //import { configure } from 'mobx'

@@ -1,8 +1,10 @@
 import React from 'react';
+
+import { observer } from 'mobx-react';
+
 import './CountriesFilterBar.css';
 import { SearchCountry } from './SearchCountry.js';
 import { SelectRegion } from './SelectRegion.js';
-import { observer } from 'mobx-react';
 
 
 import themeStore from '../../stores/ThemeStore';
