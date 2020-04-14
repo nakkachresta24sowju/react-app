@@ -1,13 +1,15 @@
-import { observable, action, toJS, computed } from 'mobx';
-import Todo from '../../stores/models/index.js';
-
+import { observable, action, computed } from 'mobx';
+import Todo from '../../stores/models/index';
+// type Props={
+//   todoObject:Todo
+// }
 class TodoStores {
-    @observable todos = [];
-    @observable selectedFilter = "ALL";
+    @observable todos: Array<Todo> = [];
+    @observable selectedFilter: String = "ALL";
 
 
     @action.bound
-    onAddTodo(value) {
+    onAddTodo(value: string) {
         if (value === "") {
             alert("given todo should not be empty");
         }
@@ -20,7 +22,7 @@ class TodoStores {
     }
 
     @action.bound
-    onRemoveTodo(idvalue) {
+    onRemoveTodo(idvalue: String) {
         let array = [...this.todos];
         const indexid = (element) => element.id === idvalue;
         let index = array.findIndex(indexid);
@@ -29,13 +31,13 @@ class TodoStores {
     }
 
     @action.bound
-    onChangeSelectedFilter(value) {
+    onChangeSelectedFilter(value: String) {
         this.selectedFilter = value;
     }
 
     @action.bound
     onClearCompleted() {
-
+        alert("clear completed");
     }
 
     // @computed get activeTodosCount() {
@@ -61,4 +63,4 @@ class TodoStores {
     }
 }
 const todoStore = new TodoStores()
-export default todoStore;
+export { todoStore as default, TodoStores };

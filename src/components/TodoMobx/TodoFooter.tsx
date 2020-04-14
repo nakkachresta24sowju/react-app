@@ -4,14 +4,26 @@ import { action } from 'mobx';
 
 import './TodoFooter.css';
 //import { action } from 'mobx';
-class TodosFooter extends React.Component {
+
+type Props = {
+    onChangeSelectedFilter: Function
+    onClearCompleted: Function
+}
+
+class TodosFooter extends React.Component<Props>{
     constructor(props) {
         super(props);
         console.log("footer", props);
     }
+
     @action.bound
-    onChangeSelectedFilter(event) {
+    onChangeSelectedFilter(event: any) {
         this.props.onChangeSelectedFilter(event.target.value);
+    }
+
+    @action.bound
+    onClearCompleted() {
+        this.props.onClearCompleted();
     }
 
     render() {
@@ -21,7 +33,7 @@ class TodosFooter extends React.Component {
                 <button className="space-between" value="ALL" onClick={this.onChangeSelectedFilter}>All</button>
                 <button className="space-between" value="ACTIVE" onClick={this.onChangeSelectedFilter}>Active</button>
                 <button className="space-between" value="COMPLETE" onClick={this.onChangeSelectedFilter} >Completed</button>
-                <button className="space-between" onClick={this.props.clearCompletedTodos}>Clear Completed</button>
+                <button className="space-between" onClick={this.onClearCompleted}>Clear Completed</button>
             </div>);
     }
 }

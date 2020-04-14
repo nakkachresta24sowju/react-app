@@ -1,12 +1,50 @@
 import React from 'react';
 
-import { observer } from 'mobx-react';
-import { Provider } from 'mobx-react';
-import { inject } from 'mobx-react';
-import { observable } from 'mobx';
+//import { observer } from 'mobx-react';
+//import { Provider } from 'mobx-react';
+//import { inject } from 'mobx-react';
+//import { observable } from 'mobx';
 //import counterStore from '../../stores/CounterStore';
 
+class Practice extends React.Component {
+    render() {
+        return (<div>inject</div>)
+    }
 
+}
+
+
+export default Practice;
+
+
+
+
+// reaction1 = reaction(
+//     () => counterStore.count,
+//     count => console.log("count", count)
+// );
+
+
+// @action.bound
+// onIncrement() {
+//     this.count.push("hai");
+//     this.count.push("helo");
+//     console.log(this.count);
+// }
+// @action.bound
+// onDecrement() {
+//     this.count--;
+// }
+// @action.bound
+// onChange(event) {
+//     this.count = event.target.value;
+// }
+
+
+
+
+//<------------------------------------------->
+{/*
 class Practice extends React.Component {
     render() {
         const { temp } = this.props;
@@ -43,29 +81,4 @@ class Practice2 extends React.Component {
     }
 
 }
-//const counterStore = new Practice();
-export default Practice;
-
-
-
-
-// reaction1 = reaction(
-//     () => counterStore.count,
-//     count => console.log("count", count)
-// );
-
-
-// @action.bound
-// onIncrement() {
-//     this.count.push("hai");
-//     this.count.push("helo");
-//     console.log(this.count);
-// }
-// @action.bound
-// onDecrement() {
-//     this.count--;
-// }
-// @action.bound
-// onChange(event) {
-//     this.count = event.target.value;
-// }
+//const counterStore = new Practice(); */}

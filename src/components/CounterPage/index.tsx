@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
-import stores from '../../stores'
-const counterStore = stores.counterStore
+//import stores from '../../stores'
+import counterStore from '../../stores/CounterStore';
+//const counterStore = stores.counterStore
 
 type Props = {
   initialCount: number
@@ -13,12 +14,12 @@ class CounterPage extends Component<Props> {
   functionCalling
 
   handleIncrement = () => {
-    counterStore.incrementCounter()
+    counterStore.onIncrement()
   }
 
   handleDecrement = () => {
     if (counterStore.count !== 0) {
-      counterStore.decrementCounter()
+      counterStore.onDecrement()
     }
   }
 

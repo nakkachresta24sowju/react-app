@@ -20,8 +20,6 @@ ${tw` text-3xl  pt-2  `}
   }
   @media (min-width: 768px) {
     flex-grow:1;
-  
-  
   }
   @media (min-width: 992px) {
     flex-grow:1;
@@ -45,10 +43,7 @@ width:100px;
 
 
 class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
 
-  }
   onChangeTheme = () => {
     this.props.onChangeTheme();
   }

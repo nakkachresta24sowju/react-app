@@ -9,8 +9,11 @@ import TodoFooter from './TodoFooter';
 
 
 import todoStore from '../../stores/TodoStores';
+//import TodoStores from '../../stores/TodoStores';
 //import { action } from 'mobx';
 //import { observable, toJS } from 'mobx';
+
+
 
 @observer
 class TodoApp extends React.Component {
@@ -29,7 +32,7 @@ class TodoApp extends React.Component {
             <span>
                 {this.renderTodos()}
             </span>
-            <span>{(todoStore.todos.length > 0) ? <TodoFooter onChangeSelectedFilter={todoStore.onChangeSelectedFilter} /> : null}</span>
+            <span>{(todoStore.todos.length > 0) ? <TodoFooter onChangeSelectedFilter={todoStore.onChangeSelectedFilter} onClearCompleted={todoStore.onClearCompleted} /> : null}</span>
         </div>);
     }
 

@@ -1,19 +1,24 @@
 import React from 'react';
-
 import { action } from 'mobx';
-
 import { observer } from 'mobx-react';
 import './Todos.css';
 
+import Todo from '../../stores/models/index';
+type Props = {
+    onRemoveTodo: Function
+    todo: Todo
+    onCompletedTodo: Function
+}
+
 @observer
-class Todos extends React.Component {
+class Todos extends React.Component<Props>{
     constructor(props) {
         super(props);
 
     }
 
     @action.bound
-    onRemoveTodo(event) {
+    onRemoveTodo(event: any) {
         this.props.onRemoveTodo(event.target.id);
     }
 

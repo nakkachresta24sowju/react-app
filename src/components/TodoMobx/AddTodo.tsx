@@ -5,8 +5,11 @@ import { observer } from 'mobx-react';
 import { action } from 'mobx';
 import { observable } from 'mobx';
 
+type Props = {
+    onAddTodo: Function
+}
 @observer
-class AddTodo extends React.Component {
+class AddTodo extends React.Component<Props>{
 
     @observable todoTitle;
 

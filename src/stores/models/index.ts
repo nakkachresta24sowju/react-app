@@ -3,9 +3,9 @@ import { observable, action } from 'mobx';
 
 
 class Todo {
-    @observable id;
-    @observable title;
-    @observable isCompleted;
+    @observable id: string;
+    @observable title: string;
+    @observable isCompleted: boolean;
     constructor() {
         this.id = Math.random().toString();
         this.title = " ";

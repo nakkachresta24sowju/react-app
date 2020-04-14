@@ -26,9 +26,7 @@ color:${props => props.background ? "black" : "pink"};
 `;
 
 class LooseTheGame extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
     handleClick = () => {
         this.props.onPlayAgainClick();
     }

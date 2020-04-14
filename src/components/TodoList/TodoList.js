@@ -1,7 +1,7 @@
 
 import React from 'react';
-import Todos from './Todos.js';
-import TodosFooter from './TodosFooter.js';
+import Todos from './Todos';
+import TodosFooter from './TodosFooter';
 import './TodoList.css';
 
 import { observer } from 'mobx-react';
