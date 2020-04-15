@@ -12,7 +12,7 @@ import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 import EmojiGame from './components/Game/EmojiGame';
 import EventApp from './components/EventApp/EventsApp';
-
+import GridMemoryGame from "./components/grid-game/GridMemoryGame";
 
 // import CounterApp from "./components/CounterApp";
 // import { CarsList } from './components/CarsList/index.js';
@@ -46,6 +46,9 @@ class App extends React.Component {
               <li>
                 <Link to="/EventsApp">EventApp</Link>
               </li>
+              <li>
+                <Link to="/grid-game">GridMemoryGame</Link>
+              </li>
             </ul>
           </nav>
           < Switch >
@@ -60,6 +63,9 @@ class App extends React.Component {
             </Route>
             <Route path="/EventsApp">
               <EventApp />
+            </Route>
+            <Route path="/grid-game">
+              <GridMemoryGame />
             </Route>
           </Switch>
         </div>
