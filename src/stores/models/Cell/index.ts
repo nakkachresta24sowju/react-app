@@ -1,11 +1,11 @@
 import { observable } from 'mobx';
 
 class Cell {
-    id;
-    @observable isHidden;
+    @observable id: string;
+    @observable isHidden: boolean;
 
     constructor() {
-        this.id;
+        this.id = Math.random().toString();
         this.isHidden = false;
     }
 

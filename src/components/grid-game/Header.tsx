@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import './Header.css';
-//import GridMemoryGame from "./GridMemoryGame";
 
 type Props = {
     selectedTheme: string
@@ -11,19 +10,16 @@ type Props = {
 }
 @observer
 class Header extends React.Component<Props>{
+
     onChangeSelectedTheme = () => {
         this.props.onChangeSelectedTheme();
     }
     render() {
-        const { selectedTheme } = this.props;
-        return (<div className={(selectedTheme === "light-theme") ? "light-theme" : "dark-theme"}>
-            <div>Top Level:0</div>
-            <div><span>Level:0</span><button onClick={this.onChangeSelectedTheme} >Mode:{(selectedTheme === "light-theme") ? "Light" : "Dark"}</button></div>
+        const { selectedTheme, level, topLevel } = this.props;
+        return (<div className={(selectedTheme === "light-theme") ? "light-theme  header-container" : "dark-theme  header-container"}>
+            <div className="toplevel">Top Level:{topLevel}</div>
+            <div className="level-mode"><span>Level:{level}</span><button className="mode" onClick={this.onChangeSelectedTheme} >Mode:{(selectedTheme === "light-theme") ? "Light" : "Dark"}</button></div>
         </div>);
     }
 }
 export default Header;
-
-//className={(gmThemeStore.selectedTheme === "light-theme") ? "light-theme" : "dark-theme"}
-//{ ? 'Light Mode' : 'Dark Mode'}
-//

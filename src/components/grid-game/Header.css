@@ -1,10 +1,30 @@
 .light-theme {
     background-color: #fff;
     color: #2b3945;
+    
 }
 
 .dark-theme {
-    background-color: #2b3945;
+    background-color:#1a202c;
     color: #fff;
+    
+}
 
+.header-container{
+    width:300px;
+    height:150px;
+}
+.toplevel
+{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 80px;
+}
+.level-mode{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.mode{
+    border:0px;
 }

@@ -4,7 +4,7 @@ class GmThemeStore {
     @observable selectedTheme: string;
 
     constructor() {
-        this.selectedTheme = "light-theme";
+        this.selectedTheme = "dark-theme";
     }
 
     onChangeSelecetdTheme = () => {
