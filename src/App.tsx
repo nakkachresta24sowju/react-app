@@ -1,36 +1,27 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-}
-  from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-
+import TodoList from "./components/TodoList/TodoList";
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
-import EmojiGame from './components/Game/EmojiGame';
-import EventApp from './components/EventApp/EventsApp';
-import GridMemoryGame from "./components/grid-game/GridMemoryGame";
+import EmojiGame from "./components/Game/EmojiGame";
+import EventApp from "./components/EventApp/EventsApp";
+import GridMemoryGame from "./components/GridGame/GridMemoryGame/GridMemoryGame";
+import TodoApp from "./components/TodoMobx/TodoApp";
 
 // import CounterApp from "./components/CounterApp";
 // import { CarsList } from './components/CarsList/index.js';
-// import TodoList from './components/TodoList/TodoList';
 // import { FormComponents } from './components/FormComponents/form-components.js';
 // import Practice from './components/Practice';
-// import TodoApp from './components/TodoMobx/TodoApp';
 
 //import { configure } from 'mobx'
-
 
 //configure({ enforceActions: true })
 
 class App extends React.Component {
-
   render() {
     return (
-      <Router basename={process.env.PUBLIC_URL} >
+      <Router basename={process.env.PUBLIC_URL}>
         <div>
           <nav>
             <ul>
@@ -49,13 +40,19 @@ class App extends React.Component {
               <li>
                 <Link to="/grid-game">GridMemoryGame</Link>
               </li>
+              <li>
+                <Link to="/TodoMobx">Todo Mobx</Link>
+              </li>
+              <li>
+                <Link to="/TodoList">Todo List</Link>
+              </li>
             </ul>
           </nav>
-          < Switch >
+          <Switch>
             <Route path="/Page1">
               <Page1 />
             </Route>
-            <Route path="/EmojiGame" >
+            <Route path="/EmojiGame">
               <EmojiGame />
             </Route>
             <Route path="/HomePage">
@@ -67,17 +64,19 @@ class App extends React.Component {
             <Route path="/grid-game">
               <GridMemoryGame />
             </Route>
+            <Route path="/TodoMobx">
+              <TodoApp />
+            </Route>
+            <Route path="/TodoList">
+              <TodoList />
+            </Route>
           </Switch>
         </div>
       </Router>
     );
   }
-};
+}
 export default App;
-
-
-
-
 
 /* <li>
 //                 <Link to="/CarsList">CarsList</Link>

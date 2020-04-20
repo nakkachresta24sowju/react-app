@@ -1,66 +1,64 @@
-import { observable, action, computed } from 'mobx';
-import Todo from '../../stores/models/index';
-// type Props={
-//   todoObject:Todo
-// }
+import { observable, action, computed } from "mobx";
+import Todo from "../../stores/models/index";
+
 class TodoStores {
-    @observable todos: Array<Todo> = [];
-    @observable selectedFilter: String = "ALL";
+  @observable todos: Array<Todo> = [];
+  @observable selectedFilter: string = "ALL";
 
+  @action.bound
+  addTodos(eachtodo) {
+    this.todos.push(eachtodo);
+  }
 
-    @action.bound
-    onAddTodo(value: string) {
-        if (value === "") {
-            alert("given todo should not be empty");
-        }
-        else {
-            let todoObject = new Todo()
-            todoObject.title = value;
-            this.todos.push(todoObject);
-        }
+  @action.bound
+  onAddTodo(title: string) {
+    let todoObject = new Todo();
+    if (title === "") {
+      alert("given todo should not be empty");
+    } else {
+      todoObject.title = title;
+      this.todos.push(todoObject);
+    }
+  }
 
+  @action.bound
+  onRemoveTodo(idvalue: string) {
+    let array = [...this.todos];
+    const indexid = (element) => element.id === idvalue;
+    let index = array.findIndex(indexid);
+    array.splice(index, 1);
+    this.todos = array;
+  }
+
+  @action.bound
+  onChangeSelectedFilter(value: string) {
+    this.selectedFilter = value;
+  }
+
+  @action.bound
+  onClearCompleted() {
+    // let Todos = this.todos.filter(todo => todo.isCompleted === true);
+    // this.todos.replace(Todos);
+    alert("completed");
+  }
+
+  @computed get activeTodosCount() {
+    let activecount = this.todos.filter((todo) => todo.isCompleted === false);
+    return activecount.length;
+  }
+
+  @computed get filteredTodos() {
+    let filterTodos;
+    if (this.selectedFilter === "COMPLETE") {
+      filterTodos = this.todos.filter((todo) => todo.isCompleted === true);
+    } else if (this.selectedFilter === "ACTIVE") {
+      filterTodos = this.todos.filter((todo) => todo.isCompleted === false);
+    } else if (this.selectedFilter === "ALL") {
+      filterTodos = this.todos.map((todo) => todo);
     }
 
-    @action.bound
-    onRemoveTodo(idvalue: String) {
-        let array = [...this.todos];
-        const indexid = (element) => element.id === idvalue;
-        let index = array.findIndex(indexid);
-        array.splice(index, 1);
-        this.todos = array;
-    }
-
-    @action.bound
-    onChangeSelectedFilter(value: String) {
-        this.selectedFilter = value;
-    }
-
-    @action.bound
-    onClearCompleted() {
-        alert("clear completed");
-    }
-
-    // @computed get activeTodosCount() {
-    //     return this.todos;
-    // }
-
-    @computed get filteredTodos() {
-        let filterTodos;
-        if (this.selectedFilter === "COMPLETE") {
-            filterTodos = this.todos.filter(todo => todo.isCompleted === true);
-
-        }
-        else if (this.selectedFilter === "ACTIVE") {
-            filterTodos = this.todos.filter(todo => todo.isCompleted === false);
-
-        }
-        else if (this.selectedFilter === "ALL") {
-            filterTodos = this.todos.map(todo => todo);
-
-        }
-
-        return filterTodos;
-    }
+    return filterTodos;
+  }
 }
-const todoStore = new TodoStores()
+const todoStore = new TodoStores();
 export { todoStore as default, TodoStores };

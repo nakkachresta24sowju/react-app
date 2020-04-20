@@ -4,9 +4,7 @@ import Todos from './Todos';
 import TodosFooter from './TodosFooter';
 import './TodoList.css';
 
-import { observer } from 'mobx-react';
 
-@observer
 class TodoList extends React.Component {
 
     constructor(props) {
