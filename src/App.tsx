@@ -8,6 +8,7 @@ import EmojiGame from "./components/Game/EmojiGame";
 import EventApp from "./components/EventApp/EventsApp";
 import GridMemoryGame from "./components/GridGame/GridMemoryGame/GridMemoryGame";
 import TodoApp from "./components/TodoMobx/TodoApp";
+import UserPage from "./components/UsersPage";
 
 // import CounterApp from "./components/CounterApp";
 // import { CarsList } from './components/CarsList/index.js';
@@ -138,3 +139,9 @@ export default App;
 //              <Practice />
 //            </Route>
 //              */
+/*
+
+<li>
+                <Link to="/UserPage">UserPage</Link>
+              </li>
+              <Route exact path="/UserPage" component={UserPage}></Route>*/
