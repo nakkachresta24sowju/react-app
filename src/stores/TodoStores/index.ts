@@ -1,5 +1,5 @@
 import { observable, action, toJS, computed } from 'mobx';
-import Todo from '../../stores/models/index.js';
+import Todo from '../../stores/models/index';
 
 class TodoStores {
     @observable todos = [];

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Countries.css';
-import CountryCard from './CountryCard.js';
+import CountryCard from './CountryCard';
 import { observer } from 'mobx-react';
 
 
