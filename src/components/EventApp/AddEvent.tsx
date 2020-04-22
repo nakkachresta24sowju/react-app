@@ -6,8 +6,12 @@ import { observable } from 'mobx';
 
 import './AddEvent.css';
 
+type Props = {
+    onAddEvent: Function
+}
+
 @observer
-class AddEvent extends React.Component {
+class AddEvent extends React.Component<Props>{
 
     @observable eventName;
     @observable eventLocation;

@@ -128,6 +128,7 @@ class EmojiGame extends React.Component {
         const { emojis } = this.state;
         let emojyies = emojis.map(emoji => emoji.isClicked = false);
         console.log("reset", this.state.topScore);
+        console.log(emojyies);
         this.setState({ gameState: "PLAYING", score: 0 });
 
     }

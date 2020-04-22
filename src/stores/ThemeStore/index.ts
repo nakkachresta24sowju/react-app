@@ -1,7 +1,7 @@
-
 import { observable } from 'mobx';
+
 class ThemeStore {
-    @observable selectedTheme
+    @observable selectedTheme: string
     constructor() {
         this.selectedTheme = "light-theme"
     }
@@ -14,9 +14,10 @@ class ThemeStore {
             this.selectedTheme = "light-theme";
         }
     }
+
     getCurrentTheme() {
         return this.selectedTheme;
     }
 }
 const themeStore = new ThemeStore()
-export default themeStore
+export { themeStore as default, ThemeStore }

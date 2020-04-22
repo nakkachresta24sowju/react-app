@@ -11,6 +11,7 @@ import EventList from './EventList';
 import eventStored from '../../stores/EventStore/EventStore';
 
 
+
 @observer
 class EventsApp extends React.Component {
 
@@ -19,7 +20,7 @@ class EventsApp extends React.Component {
         console.log("eventsprops", eventStored);
         return (<div>
             <div><AddEvent onAddEvent={eventStored.onAddEvent} /></div>
-            <div><EventList events={eventStored.events} onDeleteEvent={eventStored.onDeleteEvent} noOfEvents={eventStored.noOfEvents} /></div>
+            <div><EventList events={eventStored.events} onDeleteEvent={eventStored.onDeleteEvent} /></div>
         </div>);
     }
     ''

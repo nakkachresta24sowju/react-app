@@ -5,7 +5,6 @@ const Button = styled.button`
 background-color:${props => props.background ? "#F8F8FF" : "black"};
 color:${props => props.background ? "black" : "#f8f8ff"};
 border: 4px  solid green;
-${tw``}
 `;
 
 const Parent = styled.div`

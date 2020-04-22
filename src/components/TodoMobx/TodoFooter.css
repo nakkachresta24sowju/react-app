@@ -1,13 +1,8 @@
 .counts {
     display:flex;
-    flex-direction: row;
+    justify-content: space-between;
     background-color: white;
-    width: 468px;
-    border:2px solid red;
-    margin-left: 255px;
+    width: 460px;
+    margin-left: 540px;
 }
 
-.space-between
-{
-    justify-content: space-around;
-}

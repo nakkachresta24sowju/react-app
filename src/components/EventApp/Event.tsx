@@ -4,9 +4,15 @@ import { observer } from 'mobx-react';
 import { action } from 'mobx';
 import { observable } from 'mobx';
 
+import Events from '../../stores/models/Events';
+
+type Props = {
+    onDeleteEvent: Function
+    event: Events
+}
 
 @observer
-class AddEvent extends React.Component {
+class AddEvent extends React.Component<Props>{
 
     @observable isEditEvent = false;
     @observable eventName;
@@ -17,15 +23,15 @@ class AddEvent extends React.Component {
         this.props.onDeleteEvent(event.target.id);
     }
 
-    @action.bound
-    onChangeEventName() {
+    // @action.bound
+    // onChangeEventName() {
 
-    }
+    // }
 
-    @action.bound
-    onChangeEventLocation() {
+    // @action.bound
+    // onChangeEventLocation() {
 
-    }
+    // }
 
 
     @action.bound
@@ -52,7 +58,16 @@ class AddEvent extends React.Component {
                 </div>
             </div>);
         }
-        else {
+
+    }
+
+
+}
+export default AddEvent;
+
+
+/*
+else {
             <div>
                 <span>{event.name}</span>
                 <button id={event.id} onClick={this.onUpdateEventDetails}>update</button>
@@ -60,9 +75,4 @@ class AddEvent extends React.Component {
                     <span>{event.location}</span>
                 </div>
             </div>
-        }
-    }
-
-
-}
-export default AddEvent;
+        }*/

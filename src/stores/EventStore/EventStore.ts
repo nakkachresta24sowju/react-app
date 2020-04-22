@@ -1,12 +1,14 @@
 
-import { observable, action, toJS, computed } from 'mobx';
-
-import Events from '../../stores/models/Events.js';
+import { observable, action } from 'mobx';
+import Events from '../models/Events';
 
 
 class EventStore {
-    @observable events = [];
+    @observable events: Array<Events>
 
+    constructor() {
+        this.events = []
+    }
 
 
     @action.bound
@@ -19,7 +21,7 @@ class EventStore {
     }
 
     @action.bound
-    onDeleteEvent(idvalue) {
+    onDeleteEvent(idvalue: string) {
         let array = [...this.events];
         const indexid = (element) => element.id === idvalue;
         let index = array.findIndex(indexid);
@@ -29,10 +31,10 @@ class EventStore {
     }
 
 
-    @computed get noOfEvents() {
-        return this.events.length;
-    }
+    // @computed get noOfEvents() {
+    //     return this.events.length;
+    // }
 
 }
 const eventStored = new EventStore()
-export default eventStored;
+export { eventStored as default, EventStore }
