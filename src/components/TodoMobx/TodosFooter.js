@@ -1,23 +1,15 @@
 import React from 'react';
-import { action } from "mobx";
-import { observer } from "mobx-react";
 import './TodosFooter.css';
 class TodosFooter extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log("footer", props);
-    }
-    @action.bound
-    onChangeSelectedFilter(event) {
-        this.props.onChangeSelectedFilter(event.target.value);
-    }
-
-    @action.bound
-    onClearCompleted() {
-        this.props.onClearCompleted();
-    }
-    render() {
-        return (<div className="footer">
+      constructor(props) {
+            super(props);
+            console.log("footer", props);
+      }
+      onchangeState = (event) => {
+            this.props.onchangeState(event.target.id);
+      }
+      render() {
+            return (<div className="footer">
             <div id="counts">
                 <span id="countitems">items left</span>&nbsp;
                     <button className="all" id="all" onClick={this.onchangeState}>All</button>&nbsp;
@@ -26,6 +18,6 @@ class TodosFooter extends React.Component {
                     <button className="clear" onClick={this.props.clearCompletedTodos}>Clear Completed</button>
             </div>
         </div>);
-    }
+      }
 }
 export default TodosFooter;
