@@ -141,11 +141,12 @@ class TodoList extends React.Component {
             {this.state.presentState === "active" &&
                 <div>{this.activeTodos()}</div>
             }
-            {<LoadingWrapperWithFailure
-                apiError={getTodoListAPIError}
-                apiStatus={getTodoListAPIStatus}
-                onRetryClick={this.doNetworkCalls}
-                renderSuccessUI={this.renderTodoList}/>
+            {
+                  <LoadingWrapperWithFailure
+                                        apiError={getTodoListAPIError}
+                                        apiStatus={getTodoListAPIStatus}
+                                        onRetryClick={this.doNetworkCalls}
+                                        renderSuccessUI={this.renderTodoList}/>
             }
             <div>{this.state.show ? <TodosFooter onchangeState={this.onchangeState} clearCompletedTodos={this.clearCompletedTodos} /> : null}</div>
              

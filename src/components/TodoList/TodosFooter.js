@@ -20,10 +20,10 @@ class TodosFooter extends React.Component {
         return (<div className="footer">
             <div id="counts">
                 <span id="countitems">items left</span>&nbsp;
-                    <button className="all" id="all" onClick={this.onchangeState}>All</button>&nbsp;
-                    <button className="active" id="active" onClick={this.onchangeState}>Active</button>&nbsp;
-                    <button className="complete" id="complete" onClick={this.onchangeState} >Completed</button>&nbsp;&nbsp;
-                    <button className="clear" onClick={this.props.clearCompletedTodos}>Clear Completed</button>
+                    <button className="all" id="all" onClick={this.onChangeSelectedFilter}>All</button>&nbsp;
+                    <button className="active" id="active" onClick={this.onChangeSelectedFilter}>Active</button>&nbsp;
+                    <button className="complete" id="complete" onClick={this.onChangeSelectedFilter} >Completed</button>&nbsp;&nbsp;
+                    <button className="clear" onClick={this.onClearCompleted}>Clear Completed</button>
             </div>
         </div>);
     }

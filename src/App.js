@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import{Provider} from 'mobx-react'
+import { Provider } from 'mobx-react'
 import Stores from './stores/index';
 import TodoList from "./components/TodoList/TodoList";
 //import HomePage from "./components/HomePage";
@@ -14,34 +14,30 @@ import UserPage from "./components/UsersPage";
 //import { FormComponents } from './components/FormComponents/form-components';
 //import CounterApp from "./components/CounterApp";
 //import Practice from './components/Practice';
+import Home from './components/Home';
+import LoginPage from './components/LoginPage';
+
 
 
 
 class App extends React.Component {
   render() {
     return (
-      <Provider {...Stores}>
+      <Provider {...Stores} >
       <Router basename={process.env.PUBLIC_URL}>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/EmojiGame">EmojiGame</Link>
-              </li>
-              <li>
-                <Link to="/TodoList">Todo List</Link>
-              </li>
-              <li>
-              <Link to="/UserPage">UserPage</Link>
-              </li>
-            </ul>
-          </nav>
           <Switch>
             <Route path="/EmojiGame">
               <EmojiGame />
               </Route>
             <Route path="/TodoList">
               <TodoList />
+            </Route>
+            <Route path="/LoginPage">
+              <LoginPage />
+            </Route>
+            <Route path="/">
+              <Home />
             </Route>
             <Route exact path="/UserPage" component={UserPage}></Route>
           </Switch>
@@ -87,4 +83,23 @@ export default App;
             </Route>
             <li>
                 <Link to="/TodoMobx">Todo Mobx</Link>
-              </li>*/
+              </li>
+              
+              
+              // <nav>
+          //   <ul>
+          //     <li>
+          //       <Link to="/EmojiGame">EmojiGame</Link>
+          //     </li>
+          //     <li>
+          //       <Link to="/TodoList">Todo List</Link>
+          //     </li>
+          //     <li>
+          //     <Link to="/UserPage">UserPage</Link>
+          //     </li>
+          //     <li>
+          //     <Link to="/LoginPage">LoginPage</Link>
+          //     </li>
+          //   </ul>
+          // </nav>
+          */

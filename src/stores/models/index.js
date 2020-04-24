@@ -1,6 +1,5 @@
 import { observable, action } from "mobx";
 
-
 class Todo {
 
   @observable id;
@@ -8,7 +7,6 @@ class Todo {
   @observable completed;
 
   constructor(obj) {
-    console.log(89890909, obj);
     this.id = obj.id.toString();
     this.title = obj.title;
     this.completed = obj.completed;

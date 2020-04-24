@@ -12,7 +12,7 @@ class TodoStore {
       todosAPIService;
 
       constructor(todosAPIService) {
-            console.log(34354546, todosAPIService);
+
             this.todosAPIService = todosAPIService;
             this.init();
       }
@@ -49,10 +49,6 @@ class TodoStore {
             this.getTodoListAPIStatus = apiStatus;
       }
 
-      @action.bound
-      addTodos(eachtodo) {
-            this.todos.push(eachtodo);
-      }
 
       @action.bound
       onAddTodo(title) {
@@ -67,7 +63,7 @@ class TodoStore {
             else {
                   this.todos.push(new Todo(todoobj));
             }
-            console.log("cintent", toJS(this.todos));
+            console.log("content", toJS(this.todos));
       }
 
       @action.bound
