@@ -4,16 +4,17 @@ import { observable, action } from "mobx";
 class Todo {
   @observable id: string;
   @observable title: string;
-  @observable isCompleted: boolean;
-  constructor() {
-    this.id = Math.random().toString();
-    this.title = " ";
-    this.isCompleted = false;
+  @observable completed: boolean;
+
+  constructor(obj) {
+    this.id = obj.id.toString();
+    this.title = obj.title;
+    this.completed = obj.completed;
   }
 
   @action.bound
-  onCompletedTodo() {
-    this.isCompleted = !this.isCompleted;
+  onCompletedTodo(completed) {
+    this.completed = !completed;
   }
 
   @action.bound

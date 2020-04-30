@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { observable } from "mobx";
+import { observable, toJS } from "mobx";
 import AddTodo from "./AddTodo";
 import Todos from "./Todos";
 import TodoFooter from "./TodoFooter";
@@ -18,7 +18,7 @@ class TodoApp extends React.Component {
     fetch(`https://jsonplaceholder.typicode.com/todos`)
       .then((json) => json.json())
       .then((jsonData) => {
-        this.addTodos(jsonData);
+        this.onAddTodo(jsonData);
         this.loading = false;
         if (jsonData.length === 0) {
           this.notFound = true;
@@ -33,20 +33,19 @@ class TodoApp extends React.Component {
   }
 
   renderTodos = () => {
-    console.log("hai", todoStore.filteredTodos);
     return todoStore.filteredTodos.map((todo) => (
       <Todos
         todo={todo}
-        key={todo.title}
+        key={Math.random().toString()}
         onRemoveTodo={todoStore.onRemoveTodo}
         onCompletedTodo={todo.onCompletedTodo}
       />
     ));
   };
 
-  addTodos = (object) => {
-    const { addTodos } = todoStore;
-    object.map((obj) => addTodos(obj));
+  onAddTodo = (object) => {
+    const { onAddTodo } = todoStore;
+    object.map((obj) => onAddTodo(obj.title));
   };
 
   render() {

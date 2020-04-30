@@ -1,35 +1,42 @@
 import React, { Component } from "react";
-import { observer } from "mobx-react";
-import LoadingWrapperWithFailure from "../common/LoadingWrapperWithFailure";
-import userStore from "../../stores/UserStore/index";
-import NoDataView from "../common/NoDataView/index";
+import { observer, inject } from "mobx-react";
+import LoadingWrapperWithFailure from "../common/LoadingWrapperWithFailure/index.js";
+import NoDataView from "../common/NoDataView/index.js";
 
+@inject("userStore")
 @observer
-class UsersPage extends Component {
+class UserPage extends Component {
   componentDidMount() {
     this.doNetworkCalls();
   }
+
   doNetworkCalls = () => {
-    userStore.getUsers();
+    const { userStore } = this.props;
+    userStore.getUsersAPI();
   };
-  rendersList = () => {
+
+  renderUserList = () => {
+    const { userStore } = this.props;
     const { users } = userStore;
     if (users.length === 0) {
       return <NoDataView />;
     }
     return users.map((userName) => <div>{userName}</div>);
   };
+
   render() {
+    const { userStore } = this.props;
     const { getUsersApiStatus, getUsersApiError } = userStore;
+
     return (
       <LoadingWrapperWithFailure
-        apiStatus={getUsersApiStatus}
         apiError={getUsersApiError}
+        apiStatus={getUsersApiStatus}
         onRetryClick={this.doNetworkCalls}
-        renderSuccessUi={this.rendersList}
+        renderSuccessUI={this.renderUserList}
       />
     );
   }
 }
 
-export default UsersPage;
+export default UserPage;

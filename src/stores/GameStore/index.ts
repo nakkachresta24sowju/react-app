@@ -30,22 +30,18 @@ class GameStore {
         disabled = true;
         this.timerIdForWrongClick = window.setTimeout(
           this.goToNextLevelAndUpdateCells,
-          50
+          150
         );
       }
     } else if (cell.isHidden === false) {
       this.resetSelectedCellsCount();
-      disabled = true;
-      this.timerIdForWrongClick = window.setTimeout(
-        this.goToInitialLevelAndUpdateCells,
-        50
-      );
+      disabled = false;
+      this.goToInitialLevelAndUpdateCells();
     }
   }
 
   @action.bound
   setGridCells() {
-    clearInterval(this.intervalId);
     for (let i = 0; i < this.rows; i++) {
       const cellObject = new Cell();
       cellObject.isHidden = true;
@@ -56,7 +52,8 @@ class GameStore {
       this.currentLevelGridCells.push(cellObject);
     }
     this.shuffleHiddenCells();
-    this.intervalId = setInterval(this.resetGame, this.rows * this.rows * 1000);
+    const time = this.rows * this.rows * 1000 - this.level * this.rows * 1000;
+    this.intervalId = setInterval(this.resetGame, time);
   }
 
   shuffleHiddenCells = () => {
@@ -71,11 +68,12 @@ class GameStore {
 
   @action.bound
   goToNextLevelAndUpdateCells() {
+    clearInterval(this.intervalId);
     this.selectedCellsCount = 0;
     this.rows = this.rows + 1;
     this.level = this.level + 1;
     this.currentLevelGridCells = [];
-    if (this.level === 1) {
+    if (this.level === 2) {
       this.isGameCompleted = true;
     }
     this.setTopLevel();
@@ -84,6 +82,7 @@ class GameStore {
 
   @action.bound
   goToInitialLevelAndUpdateCells() {
+    clearInterval(this.intervalId);
     this.level = 0;
     this.rows = 3;
     this.currentLevelGridCells = [];
@@ -109,6 +108,8 @@ class GameStore {
 
   @action.bound
   resetGame() {
+    clearInterval(this.intervalId);
+    this.selectedCellsCount = 0;
     this.level = 0;
     this.rows = 3;
     this.currentLevelGridCells = [];
@@ -127,3 +128,7 @@ class GameStore {
 }
 const gameStore = new GameStore();
 export default gameStore;
+
+/*this.timerIdForWrongClick = window.setTimeout(
+  this.goToNextLevelAndUpdateCells,
+  50*/

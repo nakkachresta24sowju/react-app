@@ -7,7 +7,7 @@ import Todo from "../../stores/models/index";
 type Props = {
   onRemoveTodo: Function;
   todo: Todo;
-  onCompletedTodo: any;
+  onCompletedTodo: Function;
 };
 
 @observer
@@ -23,7 +23,8 @@ class Todos extends React.Component<Props> {
 
   @action.bound
   onCompletedTodo() {
-    this.props.onCompletedTodo();
+    const { completed } = this.props.todo;
+    this.props.onCompletedTodo(completed);
   }
 
   // @action.bound
@@ -32,14 +33,14 @@ class Todos extends React.Component<Props> {
   // }
 
   render() {
-    const { title, id, isCompleted } = this.props.todo;
+    const { title, id, completed } = this.props.todo;
     return (
       <div>
         <span className="li givenTodoList" id={id}>
           <input
             type="checkbox"
             className="checkbox"
-            defaultChecked={isCompleted}
+            defaultChecked={completed}
             onClick={this.onCompletedTodo}
           />
           <input type="text" className="giventodo" defaultValue={title} />

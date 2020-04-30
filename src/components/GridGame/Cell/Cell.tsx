@@ -52,7 +52,9 @@ class Cell extends React.Component<Props> {
           width={width}
           background={selectedTheme}
           onClick={this.onCellClick}
-        ></EachGrid>
+        >
+          y
+        </EachGrid>
       );
     } else if (!cell.isHidden && this.isClickedCell) {
       return (

@@ -1,14 +1,11 @@
-import { create } from "apisauce";
-import usersResponse from "../../Fixtures/getUsersResponse.json";
-import { networkCallWithApiSause } from "../../utils/APIUtils";
-import { apiMethods } from "../../constants/APIConstants";
+import usersResponse from "../../fixtures/getUsersResponse.json";
 
-class UserService {
-  api;
-  getUsersApi() {
+class UserFixtureService {
+  getUsersAPI = () => {
     return new Promise((resolve, reject) => {
       resolve(usersResponse);
     });
-  }
+  };
 }
-export default UserService;
+
+export default UserFixtureService;

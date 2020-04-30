@@ -1,24 +1,29 @@
-import { observable, action, computed } from "mobx";
+import { observable, action, computed, toJS } from "mobx";
 import Todo from "../../stores/models/index";
 
 class TodoStores {
   @observable todos: Array<Todo> = [];
   @observable selectedFilter: string = "ALL";
 
-  @action.bound
-  addTodos(eachtodo) {
-    this.todos.push(eachtodo);
-  }
+  // @action.bound
+  // addTodos(eachtodo) {
+  //   this.todos.push(eachtodo);
+  //   console.log("addtodoos",this.todos)
+  // }
 
   @action.bound
   onAddTodo(title: string) {
-    let todoObject = new Todo();
+    const todoobj = {
+      id: Math.random(),
+      title: title,
+      completed: false,
+    };
     if (title === "") {
       alert("given todo should not be empty");
     } else {
-      todoObject.title = title;
-      this.todos.push(todoObject);
+      this.todos.push(new Todo(todoobj));
     }
+    console.log("cintent", toJS(this.todos));
   }
 
   @action.bound
@@ -43,16 +48,16 @@ class TodoStores {
   }
 
   @computed get activeTodosCount() {
-    let activecount = this.todos.filter((todo) => todo.isCompleted === false);
+    let activecount = this.todos.filter((todo) => todo.completed === false);
     return activecount.length;
   }
 
   @computed get filteredTodos() {
     let filterTodos;
     if (this.selectedFilter === "COMPLETE") {
-      filterTodos = this.todos.filter((todo) => todo.isCompleted === true);
+      filterTodos = this.todos.filter((todo) => todo.completed === true);
     } else if (this.selectedFilter === "ACTIVE") {
-      filterTodos = this.todos.filter((todo) => todo.isCompleted === false);
+      filterTodos = this.todos.filter((todo) => todo.completed === false);
     } else if (this.selectedFilter === "ALL") {
       filterTodos = this.todos.map((todo) => todo);
     }

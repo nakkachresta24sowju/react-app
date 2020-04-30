@@ -13,6 +13,7 @@ class AddTodo extends React.Component<Props> {
 
   @action.bound
   onAddTodo(event) {
+    console.log("event", event);
     if (event.key === "Enter") {
       event.preventDefault();
       let text = event.target.value;
