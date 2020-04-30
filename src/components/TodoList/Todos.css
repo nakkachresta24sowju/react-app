@@ -23,7 +23,7 @@
 
 .giventodo {
     display: flex;
-    width: 350px;
+    width: 900px;
     font-size: 24px;
     word-break: break-all;
     margin-top: 0px;
@@ -39,7 +39,6 @@
 }
 
 .li {
-    width: 500px;
+    width: 900px;
     display: flex;
 }
-

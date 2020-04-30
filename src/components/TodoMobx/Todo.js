@@ -1,12 +1,11 @@
 import React from 'react';
 class Todos extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log("prop", props);
-    }
+      constructor(props) {
+            super(props);
+      }
 
-    render() {
-        return (<div>
+      render() {
+            return (<div>
             <ul type="none" className="givenTodoList">
                 <li className="li">
                     <input type="checkbox" value={this.props.id} className="checkbox" onClick={this.props.checkhandle} />
@@ -15,5 +14,5 @@ class Todos extends React.Component {
                 </li>
             </ul>
         </div>);
-    }
+      }
 }
