@@ -83,4 +83,4 @@ class SignIn extends React.Component<Props> {
     );
   }
 }
-export default withRouter(SignIn);
+export default SignIn;

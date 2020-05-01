@@ -10,7 +10,7 @@ const ContainerPart = styled.div`
   height: 100vh;
 `;
 const CartIcon = styled.div`
-  ${tw`w-full`}
+  ${tw`w-full h-16 w-16 p-2`}
 `;
 const ListItems = styled.div`
   overflow: auto;

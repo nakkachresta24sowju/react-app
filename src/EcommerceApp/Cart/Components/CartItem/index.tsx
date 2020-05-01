@@ -36,13 +36,10 @@ class CartItem extends React.Component<Props> {
           <p>{productDetails.printStyle}</p>
           <p>Quantity:{0}</p>
         </ItemDetails>
+        <RemoveItem value={cartItem.cartItemId} onClick={this.onRemoveCartItem}>
+          x
+        </RemoveItem>
         <PriceTaWithCloseItem>
-          <RemoveItem
-            value={cartItem.cartItemId}
-            onClick={this.onRemoveCartItem}
-          >
-            x
-          </RemoveItem>
           <PriceTag>{productDetails.price}</PriceTag>
         </PriceTaWithCloseItem>
       </CartItemContainer>

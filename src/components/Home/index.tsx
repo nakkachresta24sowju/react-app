@@ -11,10 +11,9 @@ class Home extends React.Component {
   gotoGridScreenIfLoggedIn = () => {
     return <Redirect to={{ pathname: "/SignIn" }} />;
   };
+
   render() {
-    if (true) {
-      return this.gotoGridScreenIfLoggedIn();
-    }
+    return this.gotoGridScreenIfLoggedIn();
   }
 }
 export default Home;
@@ -29,7 +28,9 @@ export default Home;
               <Link to="/Page1">Page 1</Link>
             </li>
             <li>
-              <Link to="/EmojiGame">EmojiGame</Link>
+              <li>
+            <Link to="/grid-game">GridMemoryGame</Link>
+          </li>
             </li>
             <li>
               <Link to="/Homepage">HomePage</Link>
@@ -50,4 +51,20 @@ export default Home;
         </nav>
       </div>
     );
+<nav>
+        <ul>
+          <li>
+            <Link to="/SignIn">SignIn</Link>
+          </li>
+          <li>
+            <Link to="/ProductsPage">ProductPage</Link>
+          </li>
+          <li>
+            <Link to="/EmojiGame">EmojiGame</Link>
+          </li>
+        </ul>
+      </nav>
+
+    
+  
 */

@@ -1,10 +1,9 @@
 import { observable, action } from "mobx";
 
 class Todo {
-
-  @observable id;
-  @observable title;
-  @observable completed;
+  // @observable id;
+  // @observable title;
+  // @observable completed;
 
   constructor(obj) {
     this.id = obj.id.toString();
@@ -12,12 +11,12 @@ class Todo {
     this.completed = obj.completed;
   }
 
-  @action.bound
+  //@action.bound
   onCompletedTodo(completed) {
     this.completed = !completed;
   }
 
-  @action.bound
+  //@action.bound
   onUpdateTodoTitle() {
     //return this.selectedTheme;
   }

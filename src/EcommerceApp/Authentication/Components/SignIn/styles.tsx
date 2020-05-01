@@ -4,7 +4,6 @@ import tw from "tailwind.macro";
 const ParentContainer = styled.div`
   ${tw`flex justify-center items-center `};
   min-height: 100vh;
-  border: 2px solid green;
   background-color: #f5fffa;
 `;
 

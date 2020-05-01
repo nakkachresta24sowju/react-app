@@ -8,7 +8,6 @@ import { getUserDisplayableErrorMessage } from "../../../utils/APIUtils";
 import LoadingView from "./LoadingView";
 import FailureView from "./FailureView";
 
-//@observer
 class LoadingWrapperWithFailure extends React.Component {
   render() {
     const {
