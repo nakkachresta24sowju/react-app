@@ -1,13 +1,19 @@
 import React from "react";
-import { observable, action } from "mobx";
+import { observable } from "mobx";
 import {
   ProductCartContainer,
   ContainerPart,
   CartIcon,
   ListItems,
+  CartIconWithNoOfItems,
+  CartText,
+  ProductsCount,
+  ProductsCountInCart,
+  AddItemsText,
+  ButtonHideCart,
 } from "./styles";
-import CheckOutButton from "../CheckOutButton";
-import CartList from "../CartList/index";
+import { CheckOutButton } from "../CheckOutButton";
+import { CartList } from "../CartList/index";
 import SubTotal from "../SubTotal/index";
 import { observer, inject } from "mobx-react";
 type Props = {
@@ -20,7 +26,6 @@ class ProductCart extends React.Component<Props> {
   @observable shouldDisplayCart: boolean = false;
   constructor(props) {
     super(props);
-    console.log("cartstore in product cart", this.props.cartStore);
   }
 
   showCart = () => {
@@ -30,12 +35,15 @@ class ProductCart extends React.Component<Props> {
       getProductDetailsById,
       noOfProductsInCart,
       clearCart,
+      totalCartAmount,
+      itemsQuantity,
     } = this.props.cartStore;
+
     return (
       <div>
         <ContainerPart>
-          <div>
-            <button onClick={this.onClickCart}>X</button>
+          <ButtonHideCart onClick={this.onClickCart}>x</ButtonHideCart>
+          <CartIconWithNoOfItems>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -51,23 +59,31 @@ class ProductCart extends React.Component<Props> {
               <circle cx="20" cy="21" r="1"></circle>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
             </svg>
-          </div>
+            <ProductsCount>{itemsQuantity}</ProductsCount>
+            <CartText>Cart</CartText>
+          </CartIconWithNoOfItems>
+
           <ListItems>
-            <CartList
-              productsInCart={cartProductList}
-              onRemoveCartItem={onRemoveCartItem}
-              getProductDetailsById={getProductDetailsById}
-            />
+            {noOfProductsInCart === 0 ? (
+              <AddItemsText>Add some more products in the cart</AddItemsText>
+            ) : (
+              <CartList
+                productsInCart={cartProductList}
+                onRemoveCartItem={onRemoveCartItem}
+                getProductDetailsById={getProductDetailsById}
+              />
+            )}
           </ListItems>
-          <SubTotal total={noOfProductsInCart} />
-          <CheckOutButton total={noOfProductsInCart} clearCart={clearCart} />
+
+          <SubTotal totalCost={totalCartAmount} />
+          <CheckOutButton clearCart={clearCart} />
         </ContainerPart>
       </div>
     );
   };
 
   hideCart = () => {
-    const { noOfProductsInCart } = this.props.cartStore;
+    const { itemsQuantity } = this.props.cartStore;
     return (
       <CartIcon onClick={this.onClickCart}>
         <svg
@@ -85,7 +101,7 @@ class ProductCart extends React.Component<Props> {
           <circle cx="20" cy="21" r="1"></circle>
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
         </svg>
-        <div className="-mt-8 ml-5 text-xs">{noOfProductsInCart}</div>
+        <ProductsCountInCart>{itemsQuantity}</ProductsCountInCart>
       </CartIcon>
     );
   };

@@ -2,11 +2,11 @@ import React from "react";
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Provider } from "mobx-react";
 import Home from "./components/Home/index";
-import SignInPage from "./EcommerceApp/Authentication/Components/SignIn/index";
+import { SignInRoute } from "./EcommerceApp/Authentication/Routes/SignInRoute";
 import ecommerceStores from "./components/common/Stores/index";
-import ProductsPage from "./EcommerceApp/Products/Components/ProductsPage/index";
+import { ProductPageRoute } from "./EcommerceApp/Products/Routes/ProductPageRoute";
 import Stores from "./components/common/Stores/index";
-
+//import authenticationRoutes from "../src/EcommerceApp/Authentication/Routes/index";
 class App extends React.Component {
   render() {
     return (
@@ -14,8 +14,8 @@ class App extends React.Component {
         <Router basename={process.env.PUBLIC_URL}>
           <div>
             <Switch>
-              <Route exact path="/SignIn" component={SignInPage} />
-              <Route exact path="/ProductsPage" component={ProductsPage} />
+              <Route exact path="/SignIn" component={SignInRoute} />
+              <Route exact path="/ProductsPage" component={ProductPageRoute} />
               <Route exact path="/" component={Home} />
             </Switch>
           </div>

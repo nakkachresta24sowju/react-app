@@ -1,13 +1,14 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { CartListContainer } from "./styles";
-import CartItem from "../CartItem/index";
-import { action } from "mobx";
+import { CartItem } from "../CartItem/index";
+
 type Props = {
   productsInCart: any;
   onRemoveCartItem: Function;
   getProductDetailsById: Function;
 };
+
 @observer
 class CartList extends React.Component<Props> {
   renderCartList = () => {
@@ -16,7 +17,6 @@ class CartList extends React.Component<Props> {
       onRemoveCartItem,
       getProductDetailsById,
     } = this.props;
-
     return productsInCart.map((eachProduct) => (
       <CartItem
         cartItem={eachProduct}
@@ -27,8 +27,11 @@ class CartList extends React.Component<Props> {
   };
 
   render() {
-    console.log("cartList");
-    return <CartListContainer>{this.renderCartList()}</CartListContainer>;
+    return (
+      <div>
+        <CartListContainer>{this.renderCartList()}</CartListContainer>
+      </div>
+    );
   }
 }
-export default CartList;
+export { CartList };

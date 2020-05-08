@@ -10,7 +10,7 @@ class AuthService {
     });
   }
 
-  signInAPI = () => {
+  signInAPI = (request) => {
     return networkCallWithApisauce(this.api, "v1/signin/", {}, apiMethods.get);
   };
 }

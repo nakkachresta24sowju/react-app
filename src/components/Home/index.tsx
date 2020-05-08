@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-} from "react-router-dom";
+import { HashRouter as router, Redirect } from "react-router-dom";
 
 class Home extends React.Component {
   gotoGridScreenIfLoggedIn = () => {

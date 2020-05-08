@@ -1,13 +1,11 @@
 import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 const CheckOutButtonContainer = styled.div`
-  ${tw``};
-  border: 1px solid red;
+  ${tw`flex justify-center`};
 `;
 const CheckOutBtn = styled.button`
-  ${tw`text-center  h-10 m-5`};
+  ${tw`text-center text-white p-2 m-4 h-10`};
   background-color: black;
-  border: 2px solid red;
   width: 270px;
 `;
 export { CheckOutButtonContainer, CheckOutBtn };

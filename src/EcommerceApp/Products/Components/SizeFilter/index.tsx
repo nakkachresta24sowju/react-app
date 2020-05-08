@@ -1,5 +1,5 @@
 import React from "react";
-import { action, observable, toJS } from "mobx";
+//import { action, observable, toJS } from "mobx";
 import { observer, inject } from "mobx-react";
 import { SizeFilterContainer, SizeText, SizeBtn, Btn } from "./styles";
 import { withRouter } from "react-router-dom";

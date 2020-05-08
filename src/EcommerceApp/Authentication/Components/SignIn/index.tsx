@@ -1,8 +1,6 @@
 import React from "react";
-import { observable } from "mobx";
-import { observer, inject } from "mobx-react";
-import { Redirect, withRouter } from "react-router-dom";
-import { getAccessToken } from "../../Utils/StorageUtils";
+import { Redirect } from "react-router-dom";
+import { getAccessToken } from "../../../../utils/StorageUtils";
 import {
   ParentContainer,
   SignInContainer,
@@ -14,47 +12,32 @@ import {
 } from "./styles";
 
 type Props = {
-  history: any;
-  authStore: any;
+  userName: string;
+  onChangeUserName: any;
+  password: string;
+  onChangePassword: any;
+  onClickSignIn: any;
+  errorMessage: string;
 };
 
-@inject("authStore")
-@observer
 class SignIn extends React.Component<Props> {
-  @observable username: string = "";
-  @observable password: string = "";
-  @observable errorMessage: string = "";
-  @observable errorStatus;
-
-  constructor(props) {
-    super(props);
-  }
-
-  onChangeUsername = (event) => {
-    this.username = event.target.value;
+  static defaultProps = {
+    userName: "",
+    password: "",
+    errorMessage: "",
+    onChangeUserName: () => {},
+    onChangePassword: () => {},
+    onClickSignIn: () => {},
   };
-  onChangePassword = (event) => {
-    this.password = event.target.value;
-  };
-
-  onClickSignIn = () => {
-    this.props.authStore.userSignIn();
-    if (
-      this.username === "" ||
-      (this.username === "" && this.password === "")
-    ) {
-      this.errorStatus = "Please enter username";
-    } else if (this.password === "") {
-      this.errorStatus = "Please enter password";
-    } else if (!window.navigator.onLine) {
-      this.errorStatus = "Network Error";
-    } else {
-      const { history } = this.props;
-      history.push("/ProductsPage");
-    }
-  };
-
   render() {
+    const {
+      userName,
+      onChangeUserName,
+      password,
+      onChangePassword,
+      onClickSignIn,
+      errorMessage,
+    } = this.props;
     if (getAccessToken()) {
       return <Redirect to={{ pathname: "/ProductsPage" }} />;
     }
@@ -66,21 +49,23 @@ class SignIn extends React.Component<Props> {
           </TextSignIn>
           <UserName
             type="text"
-            placeholder="UserName"
-            onChange={this.onChangeUsername}
+            defaultValue={userName}
+            placeholder="Username"
+            onChange={onChangeUserName}
           />
           <Password
             type="password"
-            placeholder="Password"
-            onChange={this.onChangePassword}
+            defaultValue={password}
+            placeholder="password"
+            onChange={onChangePassword}
           />
-          <Submit type="submit" onClick={this.onClickSignIn}>
+          <Submit type="submit" onClick={onClickSignIn}>
             SignIn
           </Submit>
-          <TextError>{this.errorStatus}</TextError>
+          <TextError>{errorMessage}</TextError>
         </SignInContainer>
       </ParentContainer>
     );
   }
 }
-export default SignIn;
+export { SignIn };

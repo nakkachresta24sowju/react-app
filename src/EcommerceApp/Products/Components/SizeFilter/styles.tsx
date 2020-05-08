@@ -4,20 +4,21 @@ type Props = {
   isClicked: boolean;
 };
 const SizeFilterContainer = styled.div`
-  ${tw`w-1/4 min-h-screen p-5`};
+  ${tw` min-h-screen  ml-8`};
+  width: 360px;
 `;
 
 const SizeText = styled.p`
-  ${tw`text-black-500 `};
+  ${tw`font-bold p-5`};
 `;
 const Btn = styled.button`
-  ${tw`rounded-full p-2 m-1 bg-gray-200 h-10 w-10 hover:border-gray-600 border focus:outline-none`};
+  ${tw`rounded-full m-1  h-10 w-10 hover:border-gray-600 border focus:outline-none`};
   background-color: ${(p: Props) =>
-    p.isClicked === false ? "black" : "white"};
+    p.isClicked === false ? "black" : "#F5F5F5"};
   color: ${(p: Props) => (p.isClicked === false ? "white" : "black")};
 `;
 
 const SizeBtn = styled.div`
-  ${tw`flex justify-between flex-wrap p-5`};
+  ${tw`flex justify-start flex-wrap pl-5`};
 `;
 export { SizeFilterContainer, SizeText, SizeBtn, Btn };
