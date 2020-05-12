@@ -1,7 +1,7 @@
 import React from "react";
 import { observable } from "mobx";
 import { observer, inject } from "mobx-react";
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import { getAccessToken } from "../Utils/StorageUtils";
 import { SignIn } from "../Components/SignIn/index";
 type Props = {
@@ -56,4 +56,4 @@ class SignInRoute extends React.Component<Props> {
     );
   }
 }
-export { SignInRoute };
+export default withRouter(SignInRoute);

@@ -1,6 +1,6 @@
-import ProductStore from "../../../Products/Stores/ProductStore/index";
+import { ProductStore } from "../../../Products/Stores/ProductStore/index";
 import ProductService from "../../../Products/Services/ProductService/index";
-import CartStore from "../CartStore/index";
+import { CartStore } from "../CartStore/index";
 /*global jest*/
 /*global expect */
 

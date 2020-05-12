@@ -1,22 +1,23 @@
 import React from "react";
-//import { action, observable, toJS } from "mobx";
+import { toJS } from "mobx";
 import { observer, inject } from "mobx-react";
 import { SizeFilterContainer, SizeText, SizeBtn, Btn } from "./styles";
-import { withRouter } from "react-router-dom";
+//import { withRouter } from "react-router-dom";
 type Props = {
   onSelectSize: Function;
   sizeFilter: any;
 };
-
-@inject("productStore")
+inject("productStore");
 @observer
 class SizeFilter extends React.Component<Props> {
   onSelectSize = (event) => {
+    console.log(event.target.value, 7777);
     this.props.onSelectSize(event.target.value);
   };
 
   render() {
-    const { sizeFilter } = this.props;
+    let { sizeFilter } = this.props;
+    //console.log(toJS(sizeFilter).indexOf("M"), 9999999999);
     return (
       <SizeFilterContainer>
         <SizeText>Sizes:</SizeText>
@@ -68,4 +69,4 @@ class SizeFilter extends React.Component<Props> {
     );
   }
 }
-export default withRouter(SizeFilter);
+export default SizeFilter;

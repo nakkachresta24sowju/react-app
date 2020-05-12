@@ -7,7 +7,7 @@ import {
 } from "@ib/api-constants";
 import ProductService from "../../Services/ProductService/index";
 import getProductsResponse from "../../Fixtures/getProductsResponse.json";
-import ProductStore from "./index";
+import { ProductStore } from "./index";
 
 /*global jest*/
 /*global expect */

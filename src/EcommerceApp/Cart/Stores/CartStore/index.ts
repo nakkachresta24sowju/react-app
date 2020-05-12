@@ -75,4 +75,4 @@ class CartStore {
   //   return this.cartProductList.length;
   // }
 }
-export default CartStore;
+export { CartStore };

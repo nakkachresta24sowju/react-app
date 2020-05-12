@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Provider } from "mobx-react";
 import Home from "./components/Home/index";
-import { SignInRoute } from "./EcommerceApp/Authentication/Routes/SignInRoute";
+import SignInRoute from "./EcommerceApp/Authentication/Routes/SignInRoute";
 import ecommerceStores from "./components/common/Stores/index";
 import { ProductPageRoute } from "./EcommerceApp/Products/Routes/ProductPageRoute";
 import Stores from "./components/common/Stores/index";

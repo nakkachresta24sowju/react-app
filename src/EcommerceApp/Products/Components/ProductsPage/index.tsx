@@ -23,6 +23,12 @@ type Props = {
 
 @observer
 class ProductsPage extends React.Component<Props> {
+  static defaultProps = {
+    productStore: {},
+    cartStore: {},
+    onClickSignOut: () => {},
+    doNetworkCalls: {},
+  };
   renderProductList = observer(() => {
     const { sortedAndFilteredProducts } = this.props.productStore;
     const { onClickAddToCart } = this.props.cartStore;
@@ -46,6 +52,7 @@ class ProductsPage extends React.Component<Props> {
       getProductListAPIError,
     } = this.props.productStore;
     const { onClickSignOut, doNetworkCalls } = this.props;
+    //console.log(sizeFilter, 4444444444);
     return (
       <ParentContainer>
         <ContainerHeader>

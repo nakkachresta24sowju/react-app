@@ -71,7 +71,6 @@ class ProductStore {
     } else {
       this.sizeFilter.splice(index, 1);
     }
-    console.log(this.sizeFilter);
   }
 
   @computed get products() {
@@ -107,4 +106,4 @@ class ProductStore {
     return this.products.length;
   }
 }
-export default ProductStore;
+export { ProductStore };

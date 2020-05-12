@@ -1,14 +1,14 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import { Router, Route, withRouter } from "react-router-dom";
-import { Provider } from "mobx-react";
+//import { Provider } from "mobx-react";
 import { createMemoryHistory } from "history";
 
-import AuthService from "../../Authentication/Services/AuthService/index";
+import AuthService from "../Services/AuthService/index";
 import AuthStore from "../Stores/AuthStore/index";
-import getUserSignInResponse from "../Fixtures/getUserSignInResponse.json";
+//import getUserSignInResponse from "../Fixtures/getUserSignInResponse.json";
 
-import { SignInRoute } from "./SignInRoute";
+import SignInRoute from "./SignInRoute";
 
 const LocationDisplay = withRouter(({ location }) => (
   <div data-testid="location-display">{location.pathname}</div>
