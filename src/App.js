@@ -18,12 +18,16 @@ import Home from './components/Home';
 import LoginPage from './components/LoginPage';
 
 
+import SignInPage from "./E_CommerceStore/Authentication/components/SignInPage/index";
+import storesFromAuth from "./Common/stores/index";
+import ProductsPage from "./E_CommerceStore/Products/components/ProductsPage/index";
+
 
 
 class App extends React.Component {
   render() {
     return (
-      <Provider {...Stores} >
+      <Provider {...storesFromAuth}>
       <Router basename={process.env.PUBLIC_URL}>
         <div>
           <Switch>
@@ -36,10 +40,13 @@ class App extends React.Component {
             <Route path="/LoginPage">
               <LoginPage />
             </Route>
+            <Route exact path="/signIn" component={SignInPage}></Route>
+          <Route exact path="/productPage" component={ProductsPage}></Route>
             <Route path="/">
               <Home />
             </Route>
             <Route exact path="/UserPage" component={UserPage}></Route>
+            
           </Switch>
         </div>
       </Router>
@@ -53,6 +60,9 @@ export default App;
 
 /*
 <li>
+
+<Route exact path="/signIn" component={SignInPage}></Route>
+          <Route exact path="/productPage" component={ProductsPage}></Route>
                 <Link to="/Homepage">HomePage</Link>
               </li>
               <li>
