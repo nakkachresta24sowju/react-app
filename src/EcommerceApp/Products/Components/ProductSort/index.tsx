@@ -18,10 +18,10 @@ class ProductsSort extends React.Component<Props> {
         <SortByPrice>
           Sort price by:
           <SortOptions onChange={this.onSelectSortBy}>
-            <option value="SELECT" key="SELECT" selected hidden>
+            <option value="SELECT" key="SELECT" defaultValue={"SELECT"} hidden>
               Select
             </option>
-            <option value="DESCENDING" key="Lowest to highest">
+            <option value="DESCENDING" key="hightest to Lowest">
               Lowest to highest
             </option>
             <option value="ASCENDING" key="Lowest to highest">

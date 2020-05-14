@@ -1,5 +1,5 @@
 import React from "react";
-import { observer } from "mobx-react";
+//import { observer } from "mobx-react";
 
 import { API_FETCHING, API_SUCCESS, API_FAILED } from "@ib/api-constants";
 
@@ -8,7 +8,6 @@ import { getUserDisplayableErrorMessage } from "../../../utils/APIUtils";
 import LoadingView from "./LoadingView";
 import FailureView from "./FailureView";
 
-//@observer
 class LoadingWrapperWithFailure extends React.Component {
   render() {
     const {

@@ -1,14 +1,13 @@
-import React from "react";
 import { observable, action } from "mobx";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise";
 import {
   setAccessToken,
   clearUserSession,
 } from "../../../../utils/StorageUtils";
-
+import { API_INITIAL } from "@ib/api-constants";
 class AuthStore {
-  @observable getUserSignInAPIStatus: string = "API_INITIAL";
-  @observable getUserSignInAPIError: string = "null";
+  @observable getUserSignInAPIStatus;
+  @observable getUserSignInAPIError;
   authAPIService: any;
 
   constructor(authAPIService) {
@@ -17,8 +16,8 @@ class AuthStore {
   }
   @action.bound
   init() {
-    this.getUserSignInAPIStatus = "API_INITIAL";
-    this.getUserSignInAPIError = "null";
+    this.getUserSignInAPIStatus = API_INITIAL;
+    this.getUserSignInAPIError = null;
   }
 
   @action.bound
@@ -47,6 +46,7 @@ class AuthStore {
   @action.bound
   userSignOut() {
     clearUserSession();
+    this.init();
   }
 }
 export default AuthStore;

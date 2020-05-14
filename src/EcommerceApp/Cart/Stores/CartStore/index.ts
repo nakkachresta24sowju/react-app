@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import { observable, action, computed, toJS } from "mobx";
 import CartItem from "../Models/index";
 
@@ -6,12 +6,12 @@ class CartStore {
   @observable cartProductList: any;
   @observable productStore: any;
   productIds: any;
+  currency: any;
 
   constructor(productStore) {
     this.cartProductList = [];
     this.productIds = [];
     this.productStore = productStore;
-    console.log(this.productStore, 222222);
   }
 
   @action.bound
@@ -21,6 +21,10 @@ class CartStore {
         this.productIds.push(value);
         this.cartProductList.push(new CartItem(obj));
       }
+    });
+    this.cartProductList.map((obj) => {
+      if (obj.productId == value && this.productIds.includes(value))
+        obj.incrementQuantity();
     });
   }
 
@@ -35,7 +39,6 @@ class CartStore {
   clearCart() {
     this.cartProductList = [];
     this.productIds = [];
-    console.log(this.cartProductList, 4444);
   }
 
   @action.bound
@@ -44,18 +47,32 @@ class CartStore {
     this.productStore.productList.map((obj) => {
       if (obj.productId == id) {
         object = obj;
+        console.log(obj);
       }
     });
-
     return object;
   }
   @computed
-  get totalCartAmount() {
-    return 1;
+  get itemsQuantity() {
+    let quantity = 0;
+    this.cartProductList.map((obj) => {
+      quantity = quantity + obj.quantity;
+    });
+    return quantity;
   }
+
   @computed
-  get noOfProductsInCart() {
-    return this.cartProductList.length;
+  get totalCartAmount() {
+    let productsCost = 0;
+    this.cartProductList.map((obj) => {
+      productsCost = productsCost + obj.price;
+    });
+    return productsCost;
   }
+
+  // @computed
+  // get noOfProductsInCart() {
+  //   return this.cartProductList.length;
+  // }
 }
-export default CartStore;
+export { CartStore };

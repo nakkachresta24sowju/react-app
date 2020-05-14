@@ -1,6 +1,6 @@
 import React from "react";
-import { action } from "mobx";
-import { observer, inject } from "mobx-react";
+
+import { observer } from "mobx-react";
 import {
   ProductPageContainer,
   ProductsContainer,
@@ -8,37 +8,26 @@ import {
   ContainerHeader,
   ParentContainer,
 } from "./styles";
-import { withRouter } from "react-router-dom";
 import Header from "../Header/index";
 import SizeFilter from "../SizeFilter/index";
 import ProductsList from "../ProductsList/index";
 import ProductCart from "../../../Cart/Components/ProductCart/index";
-import { clearUserSession } from "../../../Authentication/Utils/StorageUtils";
 import LoadingWrapperWithFailure from "../../../../components/common/LoadingWrapperWithFailure/index";
-import NoDataView from "../../../../components/common/NoDataView/index";
+
 type Props = {
   productStore: any;
   cartStore: any;
-  authStore: any;
-  history: any;
+  onClickSignOut: any;
+  doNetworkCalls: any;
 };
 
-@inject("productStore", "cartStore")
 @observer
 class ProductsPage extends React.Component<Props> {
-  componentDidMount() {
-    this.props.productStore.getProductList();
-  }
-
-  @action.bound
-  onClickSignOut() {
-    const { history } = this.props;
-    clearUserSession();
-    history.push("/SignIn");
-  }
-  doNetworkCalls = () => {
-    const { productStore } = this.props;
-    productStore.getProductList();
+  static defaultProps = {
+    productStore: {},
+    cartStore: {},
+    onClickSignOut: () => {},
+    doNetworkCalls: {},
   };
   renderProductList = observer(() => {
     const { sortedAndFilteredProducts } = this.props.productStore;
@@ -52,6 +41,8 @@ class ProductsPage extends React.Component<Props> {
   });
 
   render() {
+    console.log(this.props.productStore, 555555);
+    console.log(this.props.cartStore, 44444);
     const {
       onSelectSortBy,
       onSelectSize,
@@ -60,12 +51,13 @@ class ProductsPage extends React.Component<Props> {
       getProductListAPIStatus,
       getProductListAPIError,
     } = this.props.productStore;
-
+    const { onClickSignOut, doNetworkCalls } = this.props;
+    //console.log(sizeFilter, 4444444444);
     return (
       <ParentContainer>
         <ContainerHeader>
-          <SignOutBtn type="submit" onClick={this.onClickSignOut}>
-            SignOut
+          <SignOutBtn type="submit" onClick={onClickSignOut}>
+            Sign Out
           </SignOutBtn>
           <ProductCart cartStore={this.props.cartStore} />
         </ContainerHeader>
@@ -81,7 +73,7 @@ class ProductsPage extends React.Component<Props> {
             <LoadingWrapperWithFailure
               apiError={getProductListAPIError}
               apiStatus={getProductListAPIStatus}
-              onRetryClick={this.doNetworkCalls}
+              onRetryClick={doNetworkCalls}
               renderSuccessUI={this.renderProductList}
             />
           </ProductsContainer>
@@ -90,4 +82,4 @@ class ProductsPage extends React.Component<Props> {
     );
   }
 }
-export default withRouter(ProductsPage);
+export { ProductsPage };

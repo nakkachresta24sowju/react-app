@@ -1,17 +1,20 @@
-import { observable, action } from "mobx";
+import { observable } from "mobx";
 
 class CartItem {
-  productId;
-  cartItemId;
-  quantity;
+  @observable productId;
+  @observable cartItemId;
+  @observable quantity;
+  @observable price;
+  currencyFormat;
   constructor(obj) {
     this.productId = obj.productId;
     this.cartItemId = Math.random().toString();
     this.quantity = 0;
+    this.price = obj.price;
+    this.currencyFormat = obj.currencyFormat;
   }
-  @action.bound
-  incrementQuantity() {
-    this.quantity++;
-  }
+  incrementQuantity = () => {
+    this.quantity += 1;
+  };
 }
 export default CartItem;

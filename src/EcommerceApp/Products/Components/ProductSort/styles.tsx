@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 const ProductSortContainer = styled.div`
-  ${tw` `};
+  ${tw`mr-2`};
 `;
 const SortByPrice = styled.div`
   ${tw``};

@@ -4,7 +4,6 @@ import tw from "tailwind.macro";
 const ParentContainer = styled.div`
   ${tw`flex justify-center items-center `};
   min-height: 100vh;
-  border: 2px solid green;
   background-color: #f5fffa;
 `;
 
@@ -33,8 +32,9 @@ const TextError = styled.p`
   ${tw`text-red-600 `};
 `;
 const Submit = styled.button`
-  ${tw` text-white pr-20 pl-20 h-36 pb-4 bg-black`};
+  ${tw` text-white pr-20 pl-20 h-12  bg-black `};
   border-radius: 4px;
+  align-items: center;
 `;
 
 export {

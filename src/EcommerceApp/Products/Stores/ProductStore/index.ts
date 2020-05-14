@@ -1,22 +1,13 @@
-import React from "react";
-import { observable, action, computed, toJS } from "mobx";
+import { observable, action, computed } from "mobx";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise";
-import {
-  API_INITIAL,
-  API_FETCHING,
-  API_SUCCESS,
-  API_FAILED,
-} from "@ib/api-constants";
-import {
-  setAccessToken,
-  clearUserSession,
-} from "../../../../utils/StorageUtils";
+import { API_INITIAL } from "@ib/api-constants";
+import { setAccessToken } from "../../../../utils/StorageUtils";
 import Product from "../Models/index";
 
 class ProductStore {
-  @observable getProductListAPIStatus: string = "API_INITIAL";
+  @observable getProductListAPIStatus;
   @observable sizeFilter: any;
-  @observable getProductListAPIError: string = "null";
+  @observable getProductListAPIError;
   @observable sortBy: string = "SELECT";
   productsAPIService: any;
   @observable productList: any;
@@ -32,8 +23,8 @@ class ProductStore {
 
   @action.bound
   init() {
-    this.getProductListAPIStatus = "API_INITIAL";
-    this.getProductListAPIError = "null";
+    this.getProductListAPIStatus = API_INITIAL;
+    this.getProductListAPIError = null;
   }
 
   @action.bound
@@ -74,7 +65,6 @@ class ProductStore {
     } else {
       this.sizeFilter.splice(index, 1);
     }
-    console.log(this.sizeFilter);
   }
 
   @computed get products() {
@@ -90,9 +80,9 @@ class ProductStore {
     if (productsitems.length > 0) {
       productListItems = productsitems;
     }
-    if (this.sortBy === "DESCENDING") {
+    if (this.sortBy === "ASCENDING") {
       productListItems = productListItems.sort((a, b) => a.price - b.price);
-    } else if (this.sortBy === "ASCENDING") {
+    } else if (this.sortBy === "DESCENDING") {
       productListItems = productListItems.sort((a, b) => b.price - a.price);
     }
     productListItems = productListItems.filter(
@@ -102,7 +92,6 @@ class ProductStore {
   }
 
   @computed get sortedAndFilteredProducts() {
-    console.log("jgdfcga");
     return this.products;
   }
 
@@ -111,4 +100,4 @@ class ProductStore {
     return this.products.length;
   }
 }
-export default ProductStore;
+export { ProductStore };

@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 const ProductsContainer = styled.div`
-  ${tw`m-4 flex flex-col justify-center items-center`};
-  border: 1px solid blue;
+  ${tw`m-4 flex flex-col justify-center items-center hover:border-grey-600 border`};
   width: 240px;
 `;
 const Image = styled.img`
-  ${tw`w-48 `};
+  ${tw`w-40 `};
 `;
 const LineBar = styled.div`
   ${tw`w-4 mt-2 mb-2 rounded border-yellow-600 border `};
@@ -18,7 +17,7 @@ const Price = styled.div`
   ${tw`text-center`};
 `;
 const AddCart = styled.button`
-  ${tw`text-center w-56  h-10 text-white bg-black rounded-sm`};
+  ${tw`text-center w-48 h-10 text-white bg-black rounded-sm`};
 `;
 const CurrencyFormat = styled.span`
   ${tw`text-xs p-1`};

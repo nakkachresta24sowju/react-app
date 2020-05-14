@@ -1,5 +1,3 @@
-import { observable } from "mobx";
-
 class Product {
   productId;
   availableSizes;
