@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react";
 import { Redirect } from "react-router-dom";
 import { getAccessToken } from "../../../../utils/StorageUtils";
 import {
@@ -20,7 +21,13 @@ type Props = {
   errorMessage: string;
 };
 
+@observer
 class SignIn extends React.Component<Props> {
+  userNameRef = React.createRef<HTMLInputElement>();
+  passwordRef = React.createRef<HTMLInputElement>();
+  componentDidMount() {
+    this.userNameRef.current!.focus();
+  }
   static defaultProps = {
     userName: "",
     password: "",
@@ -29,6 +36,7 @@ class SignIn extends React.Component<Props> {
     onChangePassword: () => {},
     onClickSignIn: () => {},
   };
+
   render() {
     const {
       userName,
@@ -45,9 +53,10 @@ class SignIn extends React.Component<Props> {
       <ParentContainer>
         <SignInContainer>
           <TextSignIn>
-            <b>SignIn</b>
+            <b>Sign In</b>
           </TextSignIn>
           <UserName
+            ref={this.userNameRef}
             type="text"
             defaultValue={userName}
             placeholder="Username"
@@ -58,9 +67,10 @@ class SignIn extends React.Component<Props> {
             defaultValue={password}
             placeholder="password"
             onChange={onChangePassword}
+            ref={this.passwordRef}
           />
           <Submit type="submit" onClick={onClickSignIn}>
-            SignIn
+            Sign In
           </Submit>
           <TextError>{errorMessage}</TextError>
         </SignInContainer>

@@ -1,16 +1,10 @@
-import React from "react";
 import { observable, action } from "mobx";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise";
 import {
   setAccessToken,
   clearUserSession,
 } from "../../../../utils/StorageUtils";
-import {
-  API_SUCCESS,
-  API_FAILED,
-  API_FETCHING,
-  API_INITIAL,
-} from "@ib/api-constants";
+import { API_INITIAL } from "@ib/api-constants";
 class AuthStore {
   @observable getUserSignInAPIStatus;
   @observable getUserSignInAPIError;

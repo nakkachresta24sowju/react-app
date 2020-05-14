@@ -24,9 +24,6 @@ type Props = {
 @observer
 class ProductCart extends React.Component<Props> {
   @observable shouldDisplayCart: boolean = false;
-  constructor(props) {
-    super(props);
-  }
 
   showCart = () => {
     const {

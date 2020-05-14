@@ -12,10 +12,11 @@ type Props = {
 @inject("authStore")
 @observer
 class SignInRoute extends React.Component<Props> {
+  signInRef = React.createRef<SignIn>();
   @observable username: string = "";
   @observable password: string = "";
   @observable errorMessage: string = "";
-  @observable errorStatus;
+  // @observable errorStatus;
 
   onChangeUsername = (event) => {
     this.username = event.target.value;
@@ -24,20 +25,34 @@ class SignInRoute extends React.Component<Props> {
     this.password = event.target.value;
   };
 
-  onClickSignIn = () => {
-    this.props.authStore.userSignIn();
+  onClickSignIn = async () => {
+    const { history, authStore } = this.props;
     if (
-      this.username === "" ||
-      (this.username === "" && this.password === "")
+      this.username.length !== 0 &&
+      this.password.length !== 0 &&
+      authStore.getUserSignInAPIError === null
     ) {
-      this.errorStatus = "Please enter username";
-    } else if (this.password === "") {
-      this.errorStatus = "Please enter password";
-    } else if (!window.navigator.onLine) {
-      this.errorStatus = "Network Error";
+      await authStore.userSignIn();
+      if (getAccessToken()) {
+        history.push("/ProductsPage");
+        this.errorMessage = "";
+      } else {
+        this.errorMessage = "Network Error";
+      }
+    } else if (authStore.getUserSignInAPIError) {
+      this.errorMessage = "Network Error";
     } else {
-      const { history } = this.props;
-      history.push("/ProductsPage");
+      if (this.username === "") {
+        this.errorMessage = "Please enter username";
+      } else if (this.password === "") {
+        this.errorMessage = "Please enter password";
+      }
+    }
+
+    if (this.errorMessage === "Please enter username") {
+      this.signInRef.current?.userNameRef.current?.focus();
+    } else if (this.errorMessage === "Please enter password") {
+      this.signInRef.current?.passwordRef.current?.focus();
     }
   };
   render() {
@@ -51,7 +66,8 @@ class SignInRoute extends React.Component<Props> {
         password={this.password}
         onChangePassword={this.onChangePassword}
         onClickSignIn={this.onClickSignIn}
-        errorMessage={this.errorStatus}
+        errorMessage={this.errorMessage}
+        ref={this.signInRef}
       />
     );
   }

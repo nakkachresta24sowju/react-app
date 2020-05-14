@@ -1,12 +1,6 @@
-import React from "react";
 import { observable, action, computed } from "mobx";
 import { bindPromiseWithOnSuccess } from "@ib/mobx-promise";
-import {
-  API_INITIAL,
-  API_FETCHING,
-  API_SUCCESS,
-  API_FAILED,
-} from "@ib/api-constants";
+import { API_INITIAL } from "@ib/api-constants";
 import { setAccessToken } from "../../../../utils/StorageUtils";
 import Product from "../Models/index";
 

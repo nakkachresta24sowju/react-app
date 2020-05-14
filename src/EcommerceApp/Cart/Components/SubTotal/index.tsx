@@ -1,5 +1,4 @@
 import React from "react";
-import { reaction } from "mobx";
 import { observer } from "mobx-react";
 import { SubTotalContainer, TextSubTotal, CountSubTotal } from "./styles";
 type Props = {

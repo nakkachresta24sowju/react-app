@@ -1,8 +1,6 @@
 import React from "react";
-import { toJS } from "mobx";
 import { observer, inject } from "mobx-react";
 import { SizeFilterContainer, SizeText, SizeBtn, Btn } from "./styles";
-//import { withRouter } from "react-router-dom";
 type Props = {
   onSelectSize: Function;
   sizeFilter: any;
@@ -11,13 +9,11 @@ inject("productStore");
 @observer
 class SizeFilter extends React.Component<Props> {
   onSelectSize = (event) => {
-    console.log(event.target.value, 7777);
     this.props.onSelectSize(event.target.value);
   };
 
   render() {
     let { sizeFilter } = this.props;
-    //console.log(toJS(sizeFilter).indexOf("M"), 9999999999);
     return (
       <SizeFilterContainer>
         <SizeText>Sizes:</SizeText>

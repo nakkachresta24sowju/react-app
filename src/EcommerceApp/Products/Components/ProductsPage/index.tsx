@@ -1,6 +1,6 @@
 import React from "react";
-import { action } from "mobx";
-import { observer, inject } from "mobx-react";
+
+import { observer } from "mobx-react";
 import {
   ProductPageContainer,
   ProductsContainer,
