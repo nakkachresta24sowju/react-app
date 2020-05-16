@@ -1,6 +1,9 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { action } from "mobx";
+import { toast } from "react-toastify";
+import { FiCheckCircle } from "react-icons/fi";
+import "react-toastify/dist/ReactToastify.css";
 import {
   ProductsContainer,
   Image,
@@ -24,6 +27,12 @@ type Props = {
 class Products extends React.Component<Props> {
   @action.bound
   onClickAddToCart(event) {
+    toast.warn(
+      <p className="text-center">
+        <FiCheckCircle className="inline text-green-700" />
+        Product added to your cart!
+      </p>
+    );
     this.props.onClickAddToCart(event.target.value);
   }
   render() {

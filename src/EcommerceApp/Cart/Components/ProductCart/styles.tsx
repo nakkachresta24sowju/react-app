@@ -2,10 +2,10 @@ import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 const ProductCartContainer = styled.div`
-  ${tw`top-0 right-0 z-0 fixed bg-gray-800`};
-  border: 2px solid blue;
+  ${tw`top-0 right-0 z-10 fixed bg-gray-800 `};
 `;
 const ContainerPart = styled.div`
+  ${tw``}
   height: 100vh;
   width: 340px;
 `;
@@ -14,7 +14,7 @@ const CartIcon = styled.div`
 `;
 const ListItems = styled.div`
   overflow: auto;
-  height: 350px;
+  height: 390px;
 `;
 const CartIconWithNoOfItems = styled.div`
   ${tw`h-10 m-4 flex justify-center`}
@@ -32,7 +32,11 @@ const AddItemsText = styled.p`
   ${tw`text-white flex  justify-center `}
 `;
 const ButtonHideCart = styled.button`
-  ${tw`text-white text-lg `}
+  ${tw`text-white text-lg active:outline-none focus:outline-none leading-none`}
+`;
+const CloseButtonContainer = styled.div`
+  ${tw`flex relative bg-gray-800 pl-2 h-8`}
+  left:-20px;
 `;
 
 export {
@@ -46,4 +50,5 @@ export {
   ProductsCountInCart,
   AddItemsText,
   ButtonHideCart,
+  CloseButtonContainer,
 };

@@ -8,16 +8,16 @@ const ItemImage = styled.img`
   ${tw`w-12 h-20`}
 `;
 const ItemDetails = styled.div`
-  ${tw`flex flex-col ml-2 w-48`};
+  ${tw`flex flex-col ml-2 w-48 text`};
 `;
 const PriceTaWithCloseItem = styled.div`
-  ${tw`ml-2 right-0`};
+  ${tw`ml-2 right-0 `};
 `;
 const PriceTag = styled.p`
-  color: pink;
+  ${tw`text-orange-400 `};
 `;
 const RemoveItem = styled.button`
-  ${tw`text-white `}
+  ${tw`text-black  ml-12`}
   width: 10px;
   height: 10px;
 `;
@@ -28,11 +28,14 @@ const LineBreak = styled.hr`
   width: 330px;
 `;
 const PrintTextStyle = styled.p`
-  ${tw`text-xs`};
+  ${tw`text-xs text-gray-500`};
 `;
 
 const PrintQuantity = styled.p`
-  ${tw`text-xs`};
+  ${tw`text-xs text-gray-500`};
+`;
+const ProductTitle = styled.p`
+  ${tw`text-m text-white`};
 `;
 
 export {
@@ -45,4 +48,5 @@ export {
   LineBreak,
   PrintTextStyle,
   PrintQuantity,
+  ProductTitle,
 };

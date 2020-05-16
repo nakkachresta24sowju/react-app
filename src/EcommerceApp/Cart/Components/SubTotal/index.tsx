@@ -12,7 +12,7 @@ class SubTotal extends React.Component<Props> {
     return (
       <SubTotalContainer>
         <TextSubTotal>SUBTOTAL</TextSubTotal>
-        <CountSubTotal>₹ {totalCost}</CountSubTotal>
+        <CountSubTotal>₹ {totalCost.toFixed(2)}</CountSubTotal>
       </SubTotalContainer>
     );
   }

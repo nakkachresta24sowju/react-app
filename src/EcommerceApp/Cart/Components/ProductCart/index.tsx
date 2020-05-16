@@ -11,6 +11,7 @@ import {
   ProductsCountInCart,
   AddItemsText,
   ButtonHideCart,
+  CloseButtonContainer,
 } from "./styles";
 import { CheckOutButton } from "../CheckOutButton";
 import { CartList } from "../CartList/index";
@@ -37,9 +38,11 @@ class ProductCart extends React.Component<Props> {
     } = this.props.cartStore;
 
     return (
-      <div>
-        <ContainerPart>
+      <ProductCartContainer>
+        <CloseButtonContainer>
           <ButtonHideCart onClick={this.onClickCart}>x</ButtonHideCart>
+        </CloseButtonContainer>
+        <ContainerPart>
           <CartIconWithNoOfItems>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +79,7 @@ class ProductCart extends React.Component<Props> {
           <SubTotal totalCost={totalCartAmount} />
           <CheckOutButton clearCart={clearCart} />
         </ContainerPart>
-      </div>
+      </ProductCartContainer>
     );
   };
 

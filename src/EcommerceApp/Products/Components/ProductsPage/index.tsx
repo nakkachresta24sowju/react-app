@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ToastContainer, Slide } from "react-toastify";
 import { observer } from "mobx-react";
 import {
   ProductPageContainer,
@@ -52,7 +52,7 @@ class ProductsPage extends React.Component<Props> {
       getProductListAPIError,
     } = this.props.productStore;
     const { onClickSignOut, doNetworkCalls } = this.props;
-    //console.log(sizeFilter, 4444444444);
+
     return (
       <ParentContainer>
         <ContainerHeader>
@@ -78,6 +78,13 @@ class ProductsPage extends React.Component<Props> {
             />
           </ProductsContainer>
         </ProductPageContainer>
+        <ToastContainer
+          hideProgressBar={true}
+          autoClose={3000}
+          closeButton={false}
+          transition={Slide}
+          position="bottom-center"
+        />
       </ParentContainer>
     );
   }

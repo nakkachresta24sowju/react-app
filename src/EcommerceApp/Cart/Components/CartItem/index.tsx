@@ -10,6 +10,7 @@ import {
   LineBreak,
   PrintQuantity,
   PrintTextStyle,
+  ProductTitle,
 } from "./styles";
 
 type Props = {
@@ -34,7 +35,7 @@ class CartItem extends React.Component<Props> {
         <CartItemContainer>
           <ItemImage src={productDetails.imageURL} alt="products" />
           <ItemDetails>
-            <p>{productDetails.title}</p>
+            <ProductTitle>{productDetails.title}</ProductTitle>
             <PrintTextStyle>{productDetails.printStyle}</PrintTextStyle>
             <PrintQuantity>Quantity:{cartItem.quantity}</PrintQuantity>
           </ItemDetails>
@@ -46,7 +47,7 @@ class CartItem extends React.Component<Props> {
               x
             </RemoveItem>
 
-            <PriceTag>{productDetails.price}</PriceTag>
+            <PriceTag>₹ {productDetails.price}</PriceTag>
           </PriceTaWithCloseItem>
         </CartItemContainer>
       </div>
