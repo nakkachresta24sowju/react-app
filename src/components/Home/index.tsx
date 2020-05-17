@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class Home extends React.Component {
   gotoGridScreenIfLoggedIn = () => {
@@ -7,7 +7,33 @@ class Home extends React.Component {
   };
 
   render() {
-    return this.gotoGridScreenIfLoggedIn();
+    //return this.gotoGridScreenIfLoggedIn();
+    return (
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/EmojiGame">EmojiGame</Link>
+            </li>
+            <li>
+              <Link to="/FormComponents">FormComponents</Link>
+            </li>
+            <li>
+              <Link to="/CarsList">CarsList</Link>
+            </li>
+            <li>
+              <Link to="/Homepage">HomePage</Link>
+            </li>
+            <li>
+              <Link to="/SignIn">EcommerceApp</Link>
+            </li>
+            <li>
+              <Link to="/CountriesDashboardApp ">CountryList</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    );
   }
 }
 export default Home;
@@ -27,6 +53,9 @@ export default Home;
           </li>
             </li>
             <li>
+              <Link to="/TodoMobx">Todo Mobx</Link>
+            </li>
+            <li>
               <Link to="/Homepage">HomePage</Link>
             </li>
             <li>
@@ -34,6 +63,9 @@ export default Home;
             </li>
             <li>
               <Link to="/grid-game">GridMemoryGame</Link>
+            </li>
+            <li>
+              <Link to="/TodoList">TodoList</Link>
             </li>
             <li>
               <Link to="/TodoMobx">Todo Mobx</Link>
@@ -57,6 +89,9 @@ export default Home;
             <Link to="/EmojiGame">EmojiGame</Link>
           </li>
         </ul>
+        <li>
+              <Link to="/Loginpage">LoginPage</Link>
+            </li>
       </nav>
 
     

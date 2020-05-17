@@ -1,0 +1,32 @@
+.search-input {
+      height: 50px;
+      width: 200px;
+      border-radius: 4px;
+      font-size: 15px;
+      border: 0px;
+
+}
+
+.form-input {
+      margin: 20px;
+      width: 200px;
+      margin-right: 590px;
+}
+
+.search-icon {
+      box-shadow: 0px 4px 6px 0px rgba(68, 68, 68, 0.6);
+      width: 260px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+}
+
+.light-theme-one {
+      background-color: white;
+      color: #2b3945;
+}
+
+.dark-theme-one {
+      background-color: black;
+      color: white;
+}

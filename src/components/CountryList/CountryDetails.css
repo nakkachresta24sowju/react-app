@@ -1,0 +1,58 @@
+.navigated-country-flag {
+    height: 200px;
+    width: 400px;
+}
+
+.navigation {
+    display: flex;
+    padding-top: 50px;
+}
+
+.navigated-country {
+    width: 540px;
+}
+
+
+.top-level-domain {
+    float: right;
+    margin-right: 10px;
+}
+
+.currency {
+    float: right;
+    margin-right: 10px;
+}
+
+.region {
+    float: right;
+    margin-right: 10px;
+}
+
+.back-button {
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.text-back {
+    font-size: 15px;
+}
+
+.button-btn {
+    font-size: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+
+.light-theme-one {
+    background-color: white;
+    color: #2b3945;
+}
+
+.dark-theme-one {
+    background-color: black;
+    color: white;
+}
