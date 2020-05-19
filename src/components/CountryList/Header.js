@@ -19,21 +19,24 @@ class Header extends React.Component {
         }
       >
         <div className="header">
-          <span className="header-text">Where in the world?</span>
-          <button
-            className={
-              themeStore.selectedTheme === "dark-theme"
-                ? "header-button-dark theme-btn"
-                : "header-button-light theme-btn"
-            }
-            onClick={themeStore.onChangeTheme()}
-          >
-            <FaRegMoon />
-
-            {themeStore.selectedTheme === "dark-theme"
-              ? "DarkMode "
-              : "LightMode "}
-          </button>
+          <div className="header-text">Where in the world?</div>
+          <div className="theme-btn">
+            <span className="Moon">
+              <FaRegMoon />
+            </span>
+            <button
+              className={
+                themeStore.selectedTheme === "dark-theme"
+                  ? "header-button-dark "
+                  : "header-button-light"
+              }
+              onClick={themeStore.onChangeTheme()}
+            >
+              {themeStore.selectedTheme === "dark-theme"
+                ? "DarkMode "
+                : "LightMode "}
+            </button>
+          </div>
         </div>
       </div>
     );

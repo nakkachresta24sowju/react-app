@@ -6,7 +6,7 @@ import { SelectRegion } from "./SelectRegion";
 class CountriesFilterBar extends React.Component {
   render() {
     return (
-      <div>
+      <div className="country-filter">
         <SearchCountry onChangeSearchText={this.props.onChangeSearchText} />
         <SelectRegion
           onChangeSelectedRegion={this.props.onChangeSelectedRegion}

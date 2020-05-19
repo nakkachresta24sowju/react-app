@@ -74,7 +74,7 @@ class CountriesDashboardApp extends React.Component {
 
   render() {
     const displayCountries = this.displayCountries();
-
+    console.log(themeStore.selectedTheme);
     return (
       <div
         className={
