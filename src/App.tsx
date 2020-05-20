@@ -13,7 +13,9 @@ import CountryDetails from "./components/CountryList/CountryDetails";
 import SignInRoute from "./EcommerceApp/Authentication/Routes/SignInRoute";
 import ecommerceStores from "./components/common/Stores/index";
 import { ProductPageRoute } from "./EcommerceApp/Products/Routes/ProductPageRoute";
+import PracticeAdvancedComponents from "./Common/routes/PracticeAdvancedConceptsRoute";
 import Stores from "./components/common/Stores";
+
 //import authenticationRoutes from "../src/EcommerceApp/Authentication/Routes/index";
 class App extends React.Component {
   render() {
@@ -42,6 +44,9 @@ class App extends React.Component {
 
               <Route path="/CountriesDashboardApp/CountryDetails/:id">
                 <CountryDetails />
+              </Route>
+              <Route path="/PracticeAdvancedComponents">
+                <PracticeAdvancedComponents />
               </Route>
               <Route path="/">
                 <Home />

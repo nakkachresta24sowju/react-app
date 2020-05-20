@@ -30,6 +30,11 @@ class Home extends React.Component {
             <li>
               <Link to="/CountriesDashboardApp ">CountryList</Link>
             </li>
+            <li>
+              <Link to="/PracticeAdvancedComponents">
+                PracticeAdvancedComponents
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
