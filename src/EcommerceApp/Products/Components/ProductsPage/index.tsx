@@ -1,92 +1,116 @@
-import React from "react";
-import { ToastContainer, Slide } from "react-toastify";
-import { observer } from "mobx-react";
+import React from 'react'
+import { ToastContainer, Slide } from 'react-toastify'
+import { observer } from 'mobx-react'
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
+//import { observable } from 'mobx'
 import {
-  ProductPageContainer,
-  ProductsContainer,
-  SignOutBtn,
-  ContainerHeader,
-  ParentContainer,
-} from "./styles";
-import Header from "../Header/index";
-import SizeFilter from "../SizeFilter/index";
-import ProductsList from "../ProductsList/index";
-import ProductCart from "../../../Cart/Components/ProductCart/index";
-import LoadingWrapperWithFailure from "../../../../components/common/LoadingWrapperWithFailure/index";
+   ProductPageContainer,
+   ProductsContainer,
+   SignOutBtn,
+   ContainerHeader,
+   ParentContainer,
+   Pagination,
+   PaginationArrow,
+   PageNumber
+} from './styles'
+import Header from '../Header/index'
+import SizeFilter from '../SizeFilter/index'
+import ProductsList from '../ProductsList/index'
+import ProductCart from '../../../Cart/Components/ProductCart/index'
+import LoadingWrapperWithFailure from '../../../../components/common/LoadingWrapperWithFailure/index'
+import { observable } from 'mobx'
 
 type Props = {
-  productStore: any;
-  cartStore: any;
-  onClickSignOut: any;
-  doNetworkCalls: any;
-};
+   productStore: any
+   cartStore: any
+   onClickSignOut: any
+   doNetworkCalls: any
+}
 
 @observer
 class ProductsPage extends React.Component<Props> {
-  static defaultProps = {
-    productStore: {},
-    cartStore: {},
-    onClickSignOut: () => {},
-    doNetworkCalls: {},
-  };
-  renderProductList = observer(() => {
-    const { sortedAndFilteredProducts } = this.props.productStore;
-    const { onClickAddToCart } = this.props.cartStore;
-    return (
-      <ProductsList
-        onClickAddToCart={onClickAddToCart}
-        sortedAndFilteredProducts={sortedAndFilteredProducts}
-      />
-    );
-  });
+   //@observable paginationNumber: number = 0;
 
-  render() {
-    console.log(this.props.productStore, 555555);
-    console.log(this.props.cartStore, 44444);
-    const {
-      onSelectSortBy,
-      onSelectSize,
-      sizeFilter,
-      totalNoOfProductsDisplayed,
-      getProductListAPIStatus,
-      getProductListAPIError,
-    } = this.props.productStore;
-    const { onClickSignOut, doNetworkCalls } = this.props;
+   static defaultProps = {
+      productStore: {},
+      cartStore: {},
+      onClickSignOut: () => {},
+      doNetworkCalls: {}
+   }
+   renderProductList = observer(() => {
+      const { sortedAndFilteredProducts } = this.props.productStore
+      const { onClickAddToCart } = this.props.cartStore
+      return (
+         <ProductsList
+            onClickAddToCart={onClickAddToCart}
+            sortedAndFilteredProducts={sortedAndFilteredProducts}
+         />
+      )
+   })
 
-    return (
-      <ParentContainer>
-        <ContainerHeader>
-          <SignOutBtn type="submit" onClick={onClickSignOut}>
-            Sign Out
-          </SignOutBtn>
-          <ProductCart cartStore={this.props.cartStore} />
-        </ContainerHeader>
+   render() {
+      const {
+         onSelectSortBy,
+         onSelectSize,
+         sizeFilter,
+         total,
+         limit,
+         offSet,
+         onOffsetIncrease,
+         onOffsetDecrease,
+         totalNoOfProductsDisplayed,
+         getProductListAPIStatus,
+         getProductListAPIError
+      } = this.props.productStore
+      const { onClickSignOut, doNetworkCalls } = this.props
 
-        <ProductPageContainer>
-          <SizeFilter sizeFilter={sizeFilter} onSelectSize={onSelectSize} />
-          <ProductsContainer>
-            <Header
-              productCount={totalNoOfProductsDisplayed}
-              onSelectSortBy={onSelectSortBy}
+      return (
+         <ParentContainer>
+            <ContainerHeader>
+               <SignOutBtn type='submit' onClick={onClickSignOut}>
+                  Sign Out
+               </SignOutBtn>
+               <ProductCart cartStore={this.props.cartStore} />
+            </ContainerHeader>
+
+            <ProductPageContainer>
+               <SizeFilter
+                  sizeFilter={sizeFilter}
+                  onSelectSize={onSelectSize}
+               />
+               <ProductsContainer>
+                  <Header
+                     productCount={totalNoOfProductsDisplayed}
+                     onSelectSortBy={onSelectSortBy}
+                  />
+
+                  <LoadingWrapperWithFailure
+                     apiError={getProductListAPIError}
+                     apiStatus={getProductListAPIStatus}
+                     onRetryClick={doNetworkCalls}
+                     renderSuccessUI={this.renderProductList}
+                  />
+               </ProductsContainer>
+            </ProductPageContainer>
+            <ToastContainer
+               hideProgressBar={true}
+               autoClose={3000}
+               closeButton={false}
+               transition={Slide}
+               position='bottom-center'
             />
-
-            <LoadingWrapperWithFailure
-              apiError={getProductListAPIError}
-              apiStatus={getProductListAPIStatus}
-              onRetryClick={doNetworkCalls}
-              renderSuccessUI={this.renderProductList}
-            />
-          </ProductsContainer>
-        </ProductPageContainer>
-        <ToastContainer
-          hideProgressBar={true}
-          autoClose={3000}
-          closeButton={false}
-          transition={Slide}
-          position="bottom-center"
-        />
-      </ParentContainer>
-    );
-  }
+            <Pagination>
+               <PaginationArrow onClick={onOffsetDecrease}>
+                  <AiOutlineLeft />
+               </PaginationArrow>
+               <PageNumber>{offSet / limit + 1}</PageNumber>
+               <p>/{Math.ceil(total / limit)}</p>
+               <PaginationArrow onClick={onOffsetIncrease}>
+                  <AiOutlineRight />
+               </PaginationArrow>
+            </Pagination>
+         </ParentContainer>
+      )
+   }
 }
-export { ProductsPage };
+export { ProductsPage }

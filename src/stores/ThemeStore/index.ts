@@ -1,22 +1,22 @@
-import { observable } from "mobx";
-
+import { observable, computed, action } from 'mobx'
 class ThemeStore {
-  @observable selectedTheme: string;
-  constructor() {
-    this.selectedTheme = "light-theme";
-  }
-  //@action.bound
-  onChangeTheme = () => {
-    if (this.selectedTheme === "light-theme") {
-      this.selectedTheme = "dark-theme";
-    } else {
-      this.selectedTheme = "light-theme";
-    }
-  };
+   @observable selectedTheme
+   constructor() {
+      this.selectedTheme = 'light-theme'
+   }
+   @action.bound
+   onChangeTheme() {
+      if (this.selectedTheme === 'dark-theme') {
+         this.selectedTheme = ' light-theme'
+      } else {
+         this.selectedTheme = 'dark-theme'
+      }
+   }
 
-  getCurrentTheme() {
-    return this.selectedTheme;
-  }
+   @computed
+   get getCurrentTheme() {
+      return this.selectedTheme
+   }
 }
-const themeStore = new ThemeStore();
-export { themeStore as default, ThemeStore };
+const themeStore = new ThemeStore()
+export { themeStore as default, ThemeStore }

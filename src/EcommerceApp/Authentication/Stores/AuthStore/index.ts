@@ -1,52 +1,52 @@
-import { observable, action } from "mobx";
-import { bindPromiseWithOnSuccess } from "@ib/mobx-promise";
+import { observable, action } from 'mobx'
+import { bindPromiseWithOnSuccess } from '@ib/mobx-promise'
 import {
-  setAccessToken,
-  clearUserSession,
-} from "../../../../utils/StorageUtils";
-import { API_INITIAL } from "@ib/api-constants";
+   setAccessToken,
+   clearUserSession
+} from '../../../../utils/StorageUtils'
+import { API_INITIAL } from '@ib/api-constants'
 class AuthStore {
-  @observable getUserSignInAPIStatus;
-  @observable getUserSignInAPIError;
-  authAPIService: any;
+   @observable getUserSignInAPIStatus
+   @observable getUserSignInAPIError
+   authAPIService: any
 
-  constructor(authAPIService) {
-    this.authAPIService = authAPIService;
-    this.init();
-  }
-  @action.bound
-  init() {
-    this.getUserSignInAPIStatus = API_INITIAL;
-    this.getUserSignInAPIError = null;
-  }
+   constructor(authAPIService) {
+      this.authAPIService = authAPIService
+      this.init()
+   }
+   @action.bound
+   init() {
+      this.getUserSignInAPIStatus = API_INITIAL
+      this.getUserSignInAPIError = null
+   }
 
-  @action.bound
-  userSignIn() {
-    const authPromise = this.authAPIService.signInAPI();
-    return bindPromiseWithOnSuccess(authPromise)
-      .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
-      .catch(this.setGetUserSignInAPIError);
-  }
+   @action.bound
+   userSignIn() {
+      const authPromise = this.authAPIService.signInAPI()
+      return bindPromiseWithOnSuccess(authPromise)
+         .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
+         .catch(this.setGetUserSignInAPIError)
+   }
 
-  @action.bound
-  setUserSignInAPIResponse(authResponse) {
-    setAccessToken(authResponse);
-  }
+   @action.bound
+   setUserSignInAPIResponse(authResponse) {
+      setAccessToken(authResponse)
+   }
 
-  @action.bound
-  setGetUserSignInAPIError(error) {
-    this.getUserSignInAPIError = error;
-  }
+   @action.bound
+   setGetUserSignInAPIError(error) {
+      this.getUserSignInAPIError = error
+   }
 
-  @action.bound
-  setGetUserSignInAPIStatus(apiStatus) {
-    this.getUserSignInAPIStatus = apiStatus;
-  }
+   @action.bound
+   setGetUserSignInAPIStatus(apiStatus) {
+      this.getUserSignInAPIStatus = apiStatus
+   }
 
-  @action.bound
-  userSignOut() {
-    clearUserSession();
-    this.init();
-  }
+   @action.bound
+   userSignOut() {
+      clearUserSession()
+      this.init()
+   }
 }
-export default AuthStore;
+export default AuthStore

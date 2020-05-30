@@ -1,47 +1,50 @@
-import React from "react";
-import { Redirect, Link } from "react-router-dom";
+import React from 'react'
+import { Redirect, Link } from 'react-router-dom'
 
 class Home extends React.Component {
-  gotoGridScreenIfLoggedIn = () => {
-    return <Redirect to={{ pathname: "/SignIn" }} />;
-  };
+   gotoGridScreenIfLoggedIn = () => {
+      return <Redirect to={{ pathname: '/SignIn' }} />
+   }
 
-  render() {
-    //return this.gotoGridScreenIfLoggedIn();
-    return (
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/EmojiGame">EmojiGame</Link>
-            </li>
-            <li>
-              <Link to="/FormComponents">FormComponents</Link>
-            </li>
-            <li>
-              <Link to="/CarsList">CarsList</Link>
-            </li>
-            <li>
-              <Link to="/Homepage">HomePage</Link>
-            </li>
-            <li>
-              <Link to="/SignIn">EcommerceApp</Link>
-            </li>
-            <li>
-              <Link to="/CountriesDashboardApp ">CountryList</Link>
-            </li>
-            <li>
-              <Link to="/PracticeAdvancedComponents">
-                PracticeAdvancedComponents
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    );
-  }
+   render() {
+      //return this.gotoGridScreenIfLoggedIn();
+      return (
+         <div>
+            <nav>
+               <ul>
+                  <li>
+                     <Link to='/EmojiGame'>EmojiGame</Link>
+                  </li>
+                  <li>
+                     <Link to='/FormComponents'>FormComponents</Link>
+                  </li>
+                  <li>
+                     <Link to='/CarsList'>CarsList</Link>
+                  </li>
+                  <li>
+                     <Link to='/Homepage'>HomePage</Link>
+                  </li>
+                  <li>
+                     <Link to='/SignIn'>EcommerceApp</Link>
+                  </li>
+                  <li>
+                     <Link to='/CountriesDashboardApp '>CountryList</Link>
+                  </li>
+                  <li>
+                     <Link to='/PracticeAdvancedComponents'>
+                        PracticeAdvancedComponents
+                     </Link>
+                  </li>
+                  <li>
+                     <Link to='/grid-game'>GridMemoryGame</Link>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      )
+   }
 }
-export default Home;
+export default Home
 
 /*
 

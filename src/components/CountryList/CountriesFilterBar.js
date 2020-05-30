@@ -1,22 +1,29 @@
-import React from "react";
-import "./CountriesFilterBar.css";
-import { SearchCountry } from "./SearchCountry";
-import { SelectRegion } from "./SelectRegion";
+import React from 'react'
+import './CountriesFilterBar.css'
+import { SearchCountry } from './SearchCountry'
+import { SelectRegion } from './SelectRegion'
 
 class CountriesFilterBar extends React.Component {
-  render() {
-    return (
-      <div className="country-filter">
-        <SearchCountry onChangeSearchText={this.props.onChangeSearchText} />
-        <SelectRegion
-          onChangeSelectedRegion={this.props.onChangeSelectedRegion}
-          regionOptions={this.props.regionOptions}
-        />
-      </div>
-    );
-  }
+   render() {
+      return (
+         <div
+            className='country-filter'
+            // className={
+            //    this.props.isThemeChanged
+            //       ? 'dark-theme-one country-filter'
+            //       : 'light-theme-one country-filter'
+            // }
+         >
+            <SearchCountry onChangeSearchText={this.props.onChangeSearchText} />
+            <SelectRegion
+               onChangeSelectedRegion={this.props.onChangeSelectedRegion}
+               regionOptions={this.props.regionOptions}
+            />
+         </div>
+      )
+   }
 }
-export { CountriesFilterBar };
+export { CountriesFilterBar }
 
 //class CountriesFilterBar extends React.Component
 // {className={

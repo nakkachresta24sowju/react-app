@@ -1,14 +1,14 @@
 .country-filter {
-  display: flex;
-  border: 2px solid red;
+   display: flex;
+   justify-content: space-between;
 }
 
 .light-theme-one {
-  background-color: white;
-  color: #2b3945;
+   background-color: white;
+   color: #2b3945;
 }
 
 .dark-theme-one {
-  background-color: black;
-  color: black;
+   background-color: black;
+   color: black;
 }
