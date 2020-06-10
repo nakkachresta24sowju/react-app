@@ -4,7 +4,7 @@ import Countries from './Countries'
 import { Header } from './Header'
 import { CountriesFilterBar } from './CountriesFilterBar'
 import './CountriesDashboardApp.css'
-import themeStore from '../../stores/ThemeMode'
+//import themeStore from '../../stores/ThemeMode'
 
 class CountriesDashboardApp extends React.Component {
    constructor(props) {

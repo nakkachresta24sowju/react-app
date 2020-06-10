@@ -43,7 +43,7 @@ class ProductStore {
 
    @action.bound
    setProductListResponse(productsAPIService) {
-      setAccessToken(productsAPIService)
+      //setAccessToken(productsAPIService)
       this.productList = productsAPIService.products.map(obj => {
          return new Product(obj)
       })
