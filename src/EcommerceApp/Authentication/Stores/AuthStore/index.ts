@@ -21,8 +21,12 @@ class AuthStore {
    }
 
    @action.bound
-   userSignIn() {
-      const authPromise = this.authAPIService.signInAPI()
+   userSignIn(username, password) {
+      let requestObj = {
+         userName: username,
+         password: password
+      }
+      const authPromise = this.authAPIService.signInAPI(requestObj)
       return bindPromiseWithOnSuccess(authPromise)
          .to(this.setGetUserSignInAPIStatus, this.setUserSignInAPIResponse)
          .catch(this.setGetUserSignInAPIError)

@@ -8,10 +8,7 @@ import {
    ProductsContainer,
    SignOutBtn,
    ContainerHeader,
-   ParentContainer,
-   Pagination,
-   PaginationArrow,
-   PageNumber
+   ParentContainer
 } from './styles'
 import Header from '../Header/index'
 import SizeFilter from '../SizeFilter/index'
@@ -19,7 +16,7 @@ import ProductsList from '../ProductsList/index'
 import ProductCart from '../../../Cart/Components/ProductCart/index'
 import LoadingWrapperWithFailure from '../../../../components/common/LoadingWrapperWithFailure/index'
 import { observable } from 'mobx'
-
+import Pagination from '../../../../Common/components/Pagination/index'
 type Props = {
    productStore: any
    cartStore: any
@@ -38,7 +35,9 @@ class ProductsPage extends React.Component<Props> {
       doNetworkCalls: {}
    }
    renderProductList = observer(() => {
-      const { sortedAndFilteredProducts } = this.props.productStore
+      const {
+         sortedAndFilteredProducts
+      } = this.props.productStore.paginationStore
       const { onClickAddToCart } = this.props.cartStore
       return (
          <ProductsList
@@ -53,15 +52,11 @@ class ProductsPage extends React.Component<Props> {
          onSelectSortBy,
          onSelectSize,
          sizeFilter,
-         total,
-         limit,
-         offSet,
-         onOffsetIncrease,
-         onOffsetDecrease,
          totalNoOfProductsDisplayed,
          getProductListAPIStatus,
          getProductListAPIError
-      } = this.props.productStore
+      } = this.props.productStore.paginationStore
+
       const { onClickSignOut, doNetworkCalls } = this.props
 
       return (
@@ -74,10 +69,13 @@ class ProductsPage extends React.Component<Props> {
             </ContainerHeader>
 
             <ProductPageContainer>
-               <SizeFilter
-                  sizeFilter={sizeFilter}
-                  onSelectSize={onSelectSize}
-               />
+               <div>
+                  <SizeFilter
+                     sizeFilter={sizeFilter}
+                     onSelectSize={onSelectSize}
+                  />
+                  <Pagination productStore={this.props.productStore} />
+               </div>
                <ProductsContainer>
                   <Header
                      productCount={totalNoOfProductsDisplayed}
@@ -92,6 +90,7 @@ class ProductsPage extends React.Component<Props> {
                   />
                </ProductsContainer>
             </ProductPageContainer>
+
             <ToastContainer
                hideProgressBar={true}
                autoClose={3000}
@@ -99,16 +98,15 @@ class ProductsPage extends React.Component<Props> {
                transition={Slide}
                position='bottom-center'
             />
-            <Pagination>
-               <PaginationArrow onClick={onOffsetDecrease}>
+
+            {/* <PaginationArrow onClick={onOffsetDecrease}>
                   <AiOutlineLeft />
                </PaginationArrow>
                <PageNumber>{offSet / limit + 1}</PageNumber>
                <p>/{Math.ceil(total / limit)}</p>
                <PaginationArrow onClick={onOffsetIncrease}>
                   <AiOutlineRight />
-               </PaginationArrow>
-            </Pagination>
+               </PaginationArrow> */}
          </ParentContainer>
       )
    }

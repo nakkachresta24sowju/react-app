@@ -16,7 +16,7 @@ import ecommerceStores from './components/common/Stores/index'
 import { ProductPageRoute } from './EcommerceApp/Products/Routes/ProductPageRoute'
 import PracticeAdvancedComponents from './Common/routes/PracticeAdvancedConceptsRoute'
 import Stores from './components/common/Stores'
-
+import Button from './components/PractiseCommonComponents/Button'
 //import authenticationRoutes from "../src/EcommerceApp/Authentication/Routes/index";
 class App extends React.Component {
    render() {
@@ -54,6 +54,10 @@ class App extends React.Component {
                      </Route>
                      <Route path='/PracticeAdvancedComponents'>
                         <PracticeAdvancedComponents />
+                     </Route>
+
+                     <Route path='/CommonComponents'>
+                        <Button />
                      </Route>
                      <Route path='/'>
                         <Home />

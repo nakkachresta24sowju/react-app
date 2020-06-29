@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React from 'react'
+import getLoadingStatus from '@ib/api-utils'
 //import { observer } from 'mobx-react';
 //import { Provider } from 'mobx-react';
 //import { inject } from 'mobx-react';
@@ -7,23 +7,17 @@ import React from 'react';
 //import counterStore from '../../stores/CounterStore';
 
 class Practice extends React.Component {
-    render() {
-        return (<div>inject</div>)
-    }
-
+   render() {
+      return <div>inject</div>
+   }
 }
 
-
-export default Practice;
-
-
-
+export default Practice
 
 // reaction1 = reaction(
 //     () => counterStore.count,
 //     count => console.log("count", count)
 // );
-
 
 // @action.bound
 // onIncrement() {
@@ -40,11 +34,9 @@ export default Practice;
 //     this.count = event.target.value;
 // }
 
-
-
-
 //<------------------------------------------->
-{/*
+{
+   /*
 class Practice extends React.Component {
     render() {
         const { temp } = this.props;
@@ -81,4 +73,5 @@ class Practice2 extends React.Component {
     }
 
 }
-//const counterStore = new Practice(); */}
+//const counterStore = new Practice(); */
+}

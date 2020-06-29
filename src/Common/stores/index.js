@@ -1,21 +1,24 @@
-import AuthService from "../../E_CommerceStore/Authentication/services/AuthService/index.api";
-import AuthStore from "../../E_CommerceStore/Authentication/stores/AuthStore/index";
+import AuthService from '../../E_CommerceStore/Authentication/services/AuthService/index'
+import AuthStore from '../../E_CommerceStore/Authentication/stores/AuthStore/index'
 
-import ProductService from "../../E_CommerceStore/Products/services/ProductService/index.api";
-import ProductStore from "../../E_CommerceStore/Products/stores/ProductStore/index";
+import ProductService from '../../E_CommerceStore/Products/services/ProductService/index'
+import ProductStore from '../../E_CommerceStore/Products/stores/ProductStore/index'
 
-import CartStore from "../../E_CommerceStore/Cart/stores/CartStore/index";
+import CartStore from '../../E_CommerceStore/Cart/stores/CartStore/index'
 
-const authService = new AuthService();
-const authStore = new AuthStore(authService);
+import PaginationStore from '../stores/Pagination/index'
 
-const productService = new ProductService();
-const productStore = new ProductStore(productService);
+import Product from '../../EcommerceApp/Products/Stores/Models/index'
+const authService = new AuthService()
+const authStore = new AuthStore(authService)
 
-const cartStore = new CartStore(productStore);
-
+const productService = new ProductService()
+const paginationStore = new PaginationStore(productService, Product)
+const productStore = new ProductStore(productService, paginationStore)
+const cartStore = new CartStore(productStore)
 export default {
-      authStore,
-      productStore,
-      cartStore,
-};
+   authStore,
+   productStore,
+   cartStore,
+   paginationStore
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Header.css'
 import { FaRegMoon } from 'react-icons/fa'
-import themeStore from '../../stores/ThemeMode'
+//Simport themeStore from '../../stores/ThemeMode'
 
 class Header extends React.Component {
    // onChangeTheme = () => {

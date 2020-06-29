@@ -38,6 +38,9 @@ class Home extends React.Component {
                   <li>
                      <Link to='/grid-game'>GridMemoryGame</Link>
                   </li>
+                  <li>
+                     <Link to='/CommonComponents'>CommonComponents</Link>
+                  </li>
                </ul>
             </nav>
          </div>
