@@ -34,7 +34,7 @@ class AuthStore {
 
    @action.bound
    setUserSignInAPIResponse(authResponse) {
-      setAccessToken(authResponse)
+      setAccessToken(authResponse[0].access_token)
    }
 
    @action.bound

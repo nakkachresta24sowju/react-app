@@ -28,11 +28,12 @@ class SignInRoute extends React.Component<Props> {
    onClickSignIn = async () => {
       const { history, authStore } = this.props
       if (
-         this.username.length !== 0 &&
-         this.password.length !== 0 &&
+         this.username !== '' &&
+         this.password !== '' &&
          authStore.getUserSignInAPIError === null
       ) {
          await authStore.userSignIn(this.username, this.password)
+
          if (getAccessToken()) {
             history.push('/ProductsPage')
             this.errorMessage = ''
@@ -55,6 +56,22 @@ class SignInRoute extends React.Component<Props> {
          this.signInRef.current?.passwordRef.current?.focus()
       }
    }
+   // onClickSignIn = () => {
+   //    this.props.authStore.userSignIn();
+   //    if (
+   //      this.username === "" ||
+   //      (this.username === "" && this.password === "")
+   //    ) {
+   //      this.errorStatus = "Please enter username";
+   //    } else if (this.password === "") {
+   //      this.errorStatus = "Please enter password";
+   //    } else if (!window.navigator.onLine) {
+   //      this.errorStatus = "Network Error";
+   //    } else {
+   //      const { history } = this.props;
+   //      history.push("/ProductsPage");
+   //    }
+   //  };
    render() {
       if (getAccessToken()) {
          return <Redirect to={{ pathname: '/ProductsPage' }} />

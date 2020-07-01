@@ -20,6 +20,7 @@ import Pagination from '../../../../Common/components/Pagination/index'
 type Props = {
    productStore: any
    cartStore: any
+   paginationStore: any
    onClickSignOut: any
    doNetworkCalls: any
 }

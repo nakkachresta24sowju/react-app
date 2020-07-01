@@ -49,7 +49,7 @@ class PaginationStore {
       this.productList = productsAPIService.products.map(obj => {
          return new Product(obj)
       })
-      this.getProductList(this.limit, this.offSet)
+      // console.log(this.productList, 87878)
    }
 
    @action.bound
@@ -79,8 +79,14 @@ class PaginationStore {
       this.getProductList(this.limit, this.offSet)
    }
 
+   @action.bound
+   onSelectSortBy(value) {
+      this.sortBy = value
+   }
+
    @computed get products() {
       let productListItems = this.productList
+      console.log(this.productList, 'paginationStore')
       let productsitems: Array<object> = []
       this.sizeFilter.forEach(e => {
          this.productList.map(obj => {
@@ -93,6 +99,7 @@ class PaginationStore {
          productListItems = productsitems
       }
       if (this.sortBy === 'ASCENDING') {
+         console.log(productListItems, 'paginationStore ASC')
          productListItems = productListItems.sort((a, b) => a.price - b.price)
       } else if (this.sortBy === 'DESCENDING') {
          productListItems = productListItems.sort((a, b) => b.price - a.price)

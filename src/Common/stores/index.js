@@ -15,7 +15,7 @@ const authStore = new AuthStore(authService)
 const productService = new ProductService()
 const paginationStore = new PaginationStore(productService, Product)
 const productStore = new ProductStore(productService, paginationStore)
-const cartStore = new CartStore(productStore)
+const cartStore = new CartStore(paginationStore)
 export default {
    authStore,
    productStore,

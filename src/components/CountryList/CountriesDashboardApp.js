@@ -103,6 +103,6 @@ class CountriesDashboardApp extends React.Component {
    }
 }
 
-export { CountriesDashboardApp }
+export default CountriesDashboardApp
 
 //

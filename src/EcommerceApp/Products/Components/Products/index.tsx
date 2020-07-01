@@ -27,6 +27,7 @@ type Props = {
 class Products extends React.Component<Props> {
    @action.bound
    onClickAddToCart(event) {
+      console.log('onclickAddCart')
       toast.warn(
          <p className='text-center'>
             <FiCheckCircle className='inline text-green-700' />

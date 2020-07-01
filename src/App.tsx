@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import { Provider } from 'mobx-react'
 import Home from './components/Home'
@@ -7,64 +7,75 @@ import EmojiGame from './components/Game/EmojiGame'
 import { FormComponents } from './components/FormComponents/form-components'
 //import UserPage from "./components/UsersPage";
 import HomePage from './components/HomePage'
-import { CountriesDashboardApp } from './components/CountryList/CountriesDashboardApp'
+//import { CountriesDashboardApp } from ''
 import CountryDetails from './components/CountryList/CountryDetails'
 // import Page1 from "./components/Page1";
+import ProductPageRoute from './EcommerceApp/Products/Routes/ProductPageRoute'
 import GridMemoryGame from './components/GridGame/GridMemoryGame/GridMemoryGame'
 import SignInRoute from './EcommerceApp/Authentication/Routes/SignInRoute'
 import ecommerceStores from './components/common/Stores/index'
-import { ProductPageRoute } from './EcommerceApp/Products/Routes/ProductPageRoute'
 import PracticeAdvancedComponents from './Common/routes/PracticeAdvancedConceptsRoute'
 import Stores from './components/common/Stores'
 import Button from './components/PractiseCommonComponents/Button'
+// const ProductPageRoute = lazy(() =>
+//    import('./EcommerceApp/Products/Routes/ProductPageRoute')
+// )
+const CountriesDashboardApp = lazy(() =>
+   import('./components/CountryList/CountriesDashboardApp')
+)
 //import authenticationRoutes from "../src/EcommerceApp/Authentication/Routes/index";
 class App extends React.Component {
    render() {
       return (
          <Provider {...Stores} {...ecommerceStores}>
-            <Router basename={process.env.PUBLIC_URL}>
-               <div>
-                  <Switch>
-                     <Route path='/EmojiGame'>
-                        <EmojiGame />
-                     </Route>
-                     <Route path='/FormComponents'>
-                        <FormComponents />
-                     </Route>
-                     <Route path='/HomePage'>
-                        <HomePage />
-                     </Route>
-                     <Route path='/CarsList'>
-                        <CarsList />
-                     </Route>
-                     <Route exact path='/SignIn' component={SignInRoute} />
-                     <Route
-                        exact
-                        path='/ProductsPage'
-                        component={ProductPageRoute}
-                     />
-                     <Route exact path='/CountriesDashboardApp '>
-                        <CountriesDashboardApp />
-                     </Route>
-                     <Route path='/CountriesDashboardApp/CountryDetails/:id'>
-                        <CountryDetails />
-                     </Route>
-                     <Route path='/grid-game'>
-                        <GridMemoryGame />
-                     </Route>
-                     <Route path='/PracticeAdvancedComponents'>
-                        <PracticeAdvancedComponents />
-                     </Route>
+            <Suspense fallback={<div />}>
+               <Router basename={process.env.PUBLIC_URL}>
+                  <div>
+                     <Switch>
+                        <Route path='/EmojiGame'>
+                           <EmojiGame />
+                        </Route>
+                        <Route path='/FormComponents'>
+                           <FormComponents />
+                        </Route>
+                        <Route path='/HomePage'>
+                           <HomePage />
+                        </Route>
+                        <Route path='/CarsList'>
+                           <CarsList />
+                        </Route>
+                        <Route exact path='/SignIn' component={SignInRoute} />
+                        <Route
+                           exact
+                           path='/ProductsPage'
+                           component={ProductPageRoute}
+                        />
+                        <Route exact path='/CountriesDashboardApp '>
+                           <CountriesDashboardApp />
+                        </Route>
+                        <Route
+                           exact
+                           path='/CountriesDashboardApp/CountryDetails/:id'
+                        >
+                           <CountryDetails />
+                        </Route>
+                        <Route path='/grid-game'>
+                           <GridMemoryGame />
+                        </Route>
+                        <Route path='/PracticeAdvancedComponents'>
+                           <PracticeAdvancedComponents />
+                        </Route>
 
-                     <Route path='/CommonComponents'>
-                        <Button />
-                     </Route>
-                     <Route path='/'>
-                        <Home />
-                     </Route>
-                  </Switch>
-               </div>
-            </Router>
+                        <Route path='/CommonComponents'>
+                           <Button />
+                        </Route>
+                        <Route path='/'>
+                           <Home />
+                        </Route>
+                     </Switch>
+                  </div>
+               </Router>
+            </Suspense>
          </Provider>
       )
    }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { Redirect } from 'react-router-dom'
-import { getAccessToken } from '../../../../utils/StorageUtils'
+
 import {
    ParentContainer,
    SignInContainer,
@@ -26,9 +26,9 @@ type Props = {
 class SignIn extends React.Component<Props> {
    userNameRef = React.createRef<HTMLInputElement>()
    passwordRef = React.createRef<HTMLInputElement>()
-   componentDidMount() {
-      this.userNameRef.current!.focus()
-   }
+   // componentDidMount() {
+   //    this.userNameRef.current!.focus()
+   // }
    static defaultProps = {
       userName: '',
       password: '',
@@ -47,15 +47,13 @@ class SignIn extends React.Component<Props> {
          onClickSignIn,
          errorMessage
       } = this.props
-      if (getAccessToken()) {
-         return <Redirect to={{ pathname: '/ProductsPage' }} />
-      }
+
       TextInputValidation(userName)
       return (
          <ParentContainer>
             <SignInContainer>
                <TextSignIn>
-                  <b>Sign In</b>
+                  <b>Sign In </b>
                </TextSignIn>
                <UserName
                   ref={this.userNameRef}
