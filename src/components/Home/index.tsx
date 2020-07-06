@@ -41,6 +41,9 @@ class Home extends React.Component {
                   <li>
                      <Link to='/CommonComponents'>CommonComponents</Link>
                   </li>
+                  <li>
+                     <Link to='/Lazy-Loading'>LazyLoading</Link>
+                  </li>
                </ul>
             </nav>
          </div>

@@ -17,6 +17,7 @@ import ecommerceStores from './components/common/Stores/index'
 import PracticeAdvancedComponents from './Common/routes/PracticeAdvancedConceptsRoute'
 import Stores from './components/common/Stores'
 import Button from './components/PractiseCommonComponents/Button'
+import LazyLoadingTechnique from './components/LazyLoading/lazyLoading'
 // const ProductPageRoute = lazy(() =>
 //    import('./EcommerceApp/Products/Routes/ProductPageRoute')
 // )
@@ -65,7 +66,11 @@ class App extends React.Component {
                         <Route path='/PracticeAdvancedComponents'>
                            <PracticeAdvancedComponents />
                         </Route>
-
+                        <Route
+                           exact
+                           path='/Lazy-Loading'
+                           component={LazyLoadingTechnique}
+                        />
                         <Route path='/CommonComponents'>
                            <Button />
                         </Route>
